@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Eduardi",
+    "position": "architect",
+    "salary": 1000.00,
+    "sex": "M",
+    "status": true
+  },
+  {
+    "id": 2,
+    "name": "Chencho",
+    "position": "developer",
+    "salary": 1200.00,
+    "sex": "M",
+    "status": false
+  },
+  {
+    "id": 3,
+    "name": "Gustavinio",
+    "position": "developer",
+    "salary": 1100.00,
+    "sex": "M",
+    "status": true
+  },
+  {
+    "id": 4,
+    "name": "Javierinho",
+    "position": "manager",
+    "salary": 1300.00,
+    "sex": "M",
+    "status": true
+  },
+  {
+    "id": 5,
+    "name": "Luisinio",
+    "position": "developer",
+    "salary": 1050.00,
+    "sex": "M",
+    "status": false
+  },
+  {
+    "id": 6,
+    "name": "Verito",
+    "position": "manager",
+    "salary": 1300.00,
+    "sex": "F",
+    "status": true
+  },
+  {
+    "id": 7,
+    "name": "Edwardson",
+    "position": "architect",
+    "salary": 1150.00,
+    "sex": "M",
+    "status": false
+  },
+  {
+    "id": 8,
+    "name": "Jeanhninio",
+    "position": "developer",
+    "salary": 1000.00,
+    "sex": "M",
+    "status": true
+  },
+  {
+    "id": 9,
+    "name": "Beyonce",
+    "position": "scrum-master",
+    "salary": 1170.00,
+    "sex": "F",
+    "status": true
+  },
+  {
+    "id": 10,
+    "name": "Jorginio",
+    "position": "team-lead",
+    "salary": 1070.00,
+    "sex": "M",
+    "status": true
+  }
+]

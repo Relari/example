@@ -1,0 +1,1192 @@
+Maven:
+https://mvnrepository.com/
+https://maven.apache.org/download.cgi
+
+Ever:
+canal youtube Spring boot
+https://www.youtube.com/watch?v=H2TIvYIRxW4&list=PLcIHm18h1i4nD4H8tPeID8PNiKsm4VZm5
+
+ <properties>
+    
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    
+  </properties>
+
+
+
+<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <version>2.1.3.RELEASE</version>
+        </dependency>
+
+
+
+
+
+
+
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.3.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.example</groupId>
+	<artifactId>demo</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>demo</name>
+	<description>Demo project for Spring Boot</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
+
+?useUnicode=true&characterEncoding=utf8&useSSL=false&requireSSL=false&serverTimezone=UTC
+
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+
+<div class="container">
+
+        <div class="row">
+
+            <div class="card col-md-3" th:each="post: ${posts}">
+                <img th:src="${post.urlIng}" class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 th:text="${post.titulo}" class="card-title">Card title</h5>
+                    <p th:text="${post.descripcion}" class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p th:text="${post.fecha}" class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <a th:href="@{/home/poster?id=} + ${post.id}" class="btn btn-primary btn-lg" >Learn more</a>
+
+                </div>
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/mvc">
+<head>
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" href="../static/css/bootstrap.css" />
+
+    <meta charset="UTF-8">
+    <title>Curso de Spring boot</title>
+</head>
+<body>
+
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/prueba1?useUnicode=true&characterEncoding=utf8&useSSL=false&requireSSL=false&serverTimezone=UTC
+spring.datasource.username=root
+spring.datasource.password=mysql
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
+
+
+
+// muchos a uno y de uno a muchos
+https://www.youtube.com/watch?v=0Iaafne6BRs
+
+@Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    private String idioma;
+    private String pais;
+    private Boolean activo;
+
+http://proxylat.everis.int/proxy.pac
+
+https://www.youtube.com/watch?v=c97P1UmF1cs&list=PLZVwXPbHD1KOICjUoGskyREC0VmOGctrm&index=9
+
+
+https://www.youtube.com/watch?v=g0c6WIA5t78
+https://www.youtube.com/watch?v=7NDohpda7YU
+
+https://www.baeldung.com/security-spring
+
+checkstyle
+http://www.practicesofmastery.com/post/intellij-checkstyle-google-java-style-guide/
+
+
+
+Para hacer validaciones en JSON  recomiento este LINK
+https://jsonlint.com/
+
+tengo hambre
+
+
+/***/
+package com.everis.bootcamp.family.api.models.entity;
+
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Table(name = "families")
+@Getter
+@Setter
+public class Family implements Serializable {
+
+  private static final long serialVersionUID = 1L;
+
+  @Id
+  @SequenceGenerator(name = "families_seq", sequenceName = "families_family_id_seq", allocationSize = 1)
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "families_seq")
+  @Column(name = "family_id", updatable = false)
+  private Integer familyId;
+
+  @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+  @JoinColumn(name = "head_of_family_parent_id")
+  private Parent parent;
+
+  @NotEmpty(message = "El nombre de familia no puede estar vac�o")
+  @NotNull(message = "El nombre de familia no puede ser nulo")
+  @Column(name = "family_name")
+  private String familyName;
+
+}
+
+
+@PutMapping("/{id}")
+  public ResponseEntity<?> update(@RequestBody Student student, @PathVariable Long id) {
+    Student currentStudent = studentService.findById(id);
+    Student updatedStudent = null;
+
+    Map<String, Object> response = new HashMap<>();
+
+    if (currentStudent == null) {
+      response.put("mensaje", "Error : No se pudo editar, el estudiante con ID ".concat(id.toString().concat(" no existe en la base de datos!")));
+      return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+    }
+
+    try {
+      currentStudent.setGender(student.getGender());
+      currentStudent.setFirstName(student.getFirstName());
+      currentStudent.setMiddleName(student.getMiddleName());
+      currentStudent.setLastName(student.getLastName());
+      currentStudent.setDateOfBirth(student.getDateOfBirth());
+      currentStudent.setStudentDetails(student.getStudentDetails());
+
+      updatedStudent = studentService.save(currentStudent);
+    } catch (DataAccessException e) {
+      response.put("mensaje", "Error al actualizar el estudiante en la base de datos");
+      response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+      return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    response.put("mensaje", "El estudiante ha sido actualizado con �xito!");
+    response.put("student", updatedStudent);
+
+    return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
+  }
+
+
+
+package com.example.ejercicio1.utils;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public class FamiliesNotFoundException extends RuntimeException{
+    public FamiliesNotFoundException(String Exception) {
+    super(Exception);}
+}
+
+spring.jpa.database = postgresql
+spring.jpa.show-sql = false
+spring.jpa.hibernate.ddl-auto=update
+spring.datasource.driver-class-name = org.postgresql.Driver
+spring.datasource.url = jdbc:postgresql://localhost/bd_everis
+spring.datasource.username = postgres
+spring.datasource.password = 123456
+spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
+
+	<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+create table Parents(
+	parent_id serial primary key,
+	gender varchar(15) not null,
+	first_name varchar(100) not null,
+	middle_name varchar(100) not null,
+	last_name varchar(100) not null,
+	other_parent_detail varchar(100) null
+);
+
+create table Families(
+	family_id serial primary key,
+	head_of_family_parent_id integer not null,
+	family_name varchar(100) not null,
+	FOREIGN KEY(head_of_family_parent_id) REFERENCES Parents(parent_id)
+);
+
+create table Students(
+	student_id serial primary key,
+	gender varchar(15) not null,
+	first_name varchar(100) not null,
+	middle_name varchar(100) not null,
+	last_name varchar(100) not null,
+	date_of_birth date not null,
+	other_student_details varchar(100) null
+);
+
+
+create table Student_Parents(
+	student_id serial ,
+	parent_id serial ,
+	PRIMARY KEY(student_id,parent_id),
+	FOREIGN KEY(student_id) REFERENCES Students(student_id),
+	FOREIGN KEY(parent_id) REFERENCES Parents(parent_id)
+);
+
+
+create table Family_Members(
+	family_member_id serial primary key,
+	family_id integer not null,
+	parent_or_student_member varchar(100) not null,
+	parent_id integer not null,
+	student_id integer not null,
+	FOREIGN KEY(parent_id) REFERENCES Parents(parent_id),
+	FOREIGN KEY(student_id) REFERENCES Students(student_id)
+);
+
+https://www.baeldung.com/spring-boot-start
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+package com.example.ejercicio1.controllers;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.junit.Assert.*;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@AutoConfigureMockMvc
+public class FamiliesControllerTest {
+
+    @Autowired
+    private MockMvc mvc;
+
+    @Test
+    public void findAll() throws Exception{
+        this.mvc.perform(get("/api/families"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType("application/json;charset=UTF-8"));
+    }
+
+    @Test
+    public void findById() throws Exception{
+        this.mvc.perform(get("/api/families/1"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType("application/json;charset=UTF-8"));
+    }
+
+    @Test
+    public void create() throws Exception{
+        /*String familiesJSON = ("    {\n" +
+                        "        \"headOfFamilyParentId\": \n" +
+                        "          {\n"+
+                        "        \"parentId\": 3\n" +
+                        "        },\n" +
+                        "                \"familyName\": \"prueba3\"\n" +
+                        "    }";
+        this.mvc.perform(post("/api/families/nuevo")
+                .content(familiesJSON))
+                .andExpect(status().isCreated())
+                .andExpect(content().contentType("application/json;charset=UTF-8"));*/
+        this.mvc.perform(post("/api/families/nuevo")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("    {\n" +
+                        "        \"headOfFamilyParentId\": \n" +
+                        "          {\n"+
+                        "        \"parentId\": 4\n" +
+                        "        },\n" +
+                        "                \"familyName\": \"prueba3\"\n" +
+                        "    }")).andExpect(status().isCreated())
+                .andReturn();
+    }
+
+    @Test
+    public void update() throws Exception{
+        this.mvc.perform(put("/api/families/11")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("    {\n" +
+                        "        \"headOfFamilyParentId\": \n" +
+                        "          {\n"+
+                        "        \"parentId\": 4\n" +
+                        "        },\n" +
+                        "                \"familyName\": \"prueba10\"\n" +
+                        "    }")).andExpect(status().isCreated())
+                .andReturn();
+    }
+
+    @Test
+    public void delete() throws Exception{
+        this.mvc.perform(MockMvcRequestBuilders.delete("/api/families/11"))
+                .andExpect(status().isNoContent());
+    }
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+pom.xml
+
+    <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+
+paquete: config
+SwaggerConfig.cs
+
+package com.everis.restfulapi.config;
+
+import java.util.Collections;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.RestController;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+@Configuration
+@EnableSwagger2
+public class SwaggerConfig {
+
+  @Bean
+  public Docket api() {
+    return new Docket(DocumentationType.SWAGGER_2)
+        .select()
+        .apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))
+        .paths(PathSelectors.any())
+        .build()
+        .apiInfo(apiInfo());
+  }
+
+  private ApiInfo apiInfo() {
+    return new ApiInfo(
+        "Spring boot Restfull",
+        "BootCamp Everis",
+        "V 1.0.0",
+        "Terms of controller",
+        new Contact("Lorena Antonella Solis Diaz", "https://linkedin/lorena-solis-diaz",
+                   "lorenasolis10@gmail.com"), "License of Spring boot Restfull",
+                   "Spring boot license URL", Collections.emptyList());
+  }
+}
+
+url : http://localhost:8080/swagger-ui.html
+
+
+ <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.1.6.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+
+
+@PutMapping("/{id}")
+  public ResponseEntity<Student> update(@Valid @RequestBody Student student, @PathVariable Integer id) throws ResourceNotFoundException {
+    Student currentStudent = studentService.findById(id);
+    Student updatedStudent = null;
+
+    if (currentStudent == null) {
+      throw new ResourceNotFoundException("Student not found for this id :: " + id);
+    }
+
+    try {
+      currentStudent.setGender(student.getGender());
+      currentStudent.setFirstName(student.getFirstName());
+      currentStudent.setMiddleName(student.getMiddleName());
+      currentStudent.setLastName(student.getLastName());
+      currentStudent.setDateOfBirth(student.getDateOfBirth());
+      currentStudent.setStudentDetails(student.getStudentDetails());
+
+      updatedStudent = studentService.save(currentStudent);
+    } catch (DataAccessException e) {
+      throw new ResourceNotFoundException("Error al actualizar en la base de datos");
+    }
+
+    return new ResponseEntity<Student>(updatedStudent,HttpStatus.CREATED);
+  }
+
+
+
+
+
+
+
+
+<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.8.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.8.0</version>
+		</dependency>
+
+
+
+
+
+package com.trainee.family.conf;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.RestController;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+import java.util.Collections;
+
+@EnableSwagger2
+@Configuration
+public class SwaggerConfig {
+	@Bean
+	public Docket api() {
+		return new Docket(DocumentationType.SWAGGER_2)
+			.select()
+			.apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))
+			.paths(PathSelectors.any())
+			.build()
+			.apiInfo(apiInfo());
+	}
+	
+	private ApiInfo apiInfo() {
+		return new ApiInfo(
+			"Spring boot RestfullApi",
+			"BootCamp Trainee Everis 2019",
+			"V 1.0.0",
+			"Terms of controller",
+			new Contact("Herbert Daniel Chaicha Oca�a", "https://linkedin/herbeth-daniel-chaicha-oca�a",
+				"evrchaicha@gmail.com"), "License of Spring boot Restfull",
+			"Spring boot license URL", Collections.emptyList());
+	}
+}
+
+package com.everis.restfulapi.controller;
+
+import com.everis.restfulapi.model.FamilyMembers;
+import com.everis.restfulapi.service.FamilyMembersService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/familyMembers")
+public class FamilyMembersController {
+
+  @Autowired
+  private FamilyMembersService familyMembersService;
+
+  @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE)
+  public void create(@RequestBody FamilyMembers familyMembers) {
+    familyMembersService.create(familyMembers);
+  }
+
+  @GetMapping(value = "/findAll")
+  public List<FamilyMembers> findAll() {
+    return familyMembersService.findAll();
+  }
+
+  @PutMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_VALUE)
+  public void update(@RequestBody FamilyMembers familyMembers) {
+    familyMembersService.update(familyMembers);
+  }
+
+  @DeleteMapping(value = "/delete/{familyMemberId}")
+  public void delete(@PathVariable("familyMemberId") int familyMemberId) {
+    familyMembersService.delete(familyMemberId);
+  }
+
+  @GetMapping(value = "/findAllBy/{familyId}")
+  public List<FamilyMembers> findAllBy(@PathVariable("familyId") int familyId) {
+    return familyMembersService.findAllBy(familyId);
+  }
+
+}
+
+
+package com.everis.restfulapi.repository;
+
+import com.everis.restfulapi.model.FamilyMembers;
+import java.util.List;
+import javax.transaction.Transactional;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface FamilyMembersRepository extends JpaRepository<FamilyMembers,Integer> {
+  @Modifying
+  @Transactional
+  @Query(value = "DELETE FROM family_members WHERE student_id=:studentId", nativeQuery = true)
+
+  void deleteByStudent(@Param("studentId") Integer studentId);
+
+  @Modifying
+  @Transactional
+  @Query(value = "DELETE FROM family_members WHERE parent_id=:parentId", nativeQuery = true)
+
+  void deleteByParent(@Param("parentId") Integer parentId);
+
+  @Modifying
+  @Transactional
+  @Query(value = "DELETE FROM family_members WHERE family_id=:familyId", nativeQuery = true)
+
+  void deleteByFamily(@Param("familyId") Integer familyId);
+
+  @Modifying
+  @Transactional
+  @Query(value = "SELECT * FROM family_members WHERE family_id=:familyId", nativeQuery = true)
+
+  List<FamilyMembers> findAllBy(@Param("familyId") Integer familyId);
+}
+
+package com.everis.restfulapi.service.impl;
+
+import com.everis.restfulapi.model.FamilyMembers;
+import com.everis.restfulapi.repository.FamilyMembersRepository;
+import com.everis.restfulapi.service.FamilyMembersService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class FamilyMembersImpl implements FamilyMembersService {
+
+  @Autowired
+  private FamilyMembersRepository familyMembersRepository;
+
+  @Override
+  public void create(FamilyMembers familyMembers) {
+    familyMembersRepository.save(familyMembers);
+  }
+
+  @Override
+  public List<FamilyMembers> findAll() {
+    return familyMembersRepository.findAll();
+  }
+
+  @Override
+  public void update(FamilyMembers familyMembers) {
+    familyMembersRepository.saveAndFlush(familyMembers);
+  }
+
+  @Override
+  public void delete(int familyMemberId) {
+    familyMembersRepository.deleteById(familyMemberId);
+  }
+
+  @Override
+  public List<FamilyMembers> findAllBy(int familyId) {
+    return familyMembersRepository.findAllBy(familyId);
+  }
+}
+
+package com.everis.restfulapi.service;
+
+import com.everis.restfulapi.model.FamilyMembers;
+
+import java.util.List;
+
+public interface FamilyMembersService {
+
+  void create(FamilyMembers familyMembers);
+
+  List<FamilyMembers> findAll();
+
+  void update(FamilyMembers familyMembers);
+
+  void delete(int familyMemberId);
+
+  List<FamilyMembers> findAllBy(int familyId);
+
+}
+
+
+=======================================================
+
+<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>2.0.0.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>6.0.2.Final</version>
+		</dependency>
+
+
+
+
+/**/
+{
+  "gender" : "male",
+  "firstName" : "Rick",
+  "middleName" : "Grimes",
+  "lastName" : "Warner",
+  "dateOfBirth" : "1997-03-31",
+  "studentDetails" : "Alumno sobresaliente",
+  "parents" : [
+	{
+		"parentId": 13
+	}
+  ]
+}
+
+
+
+000000000000000000000000000000000000000000000000000000000000000000000
+
+package com.trainee.family.controller;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@AutoConfigureMockMvc
+public class ParentControllerTest {
+	
+	@Autowired
+	private MockMvc mvc;
+	
+	@Test
+	public void createParent() throws Exception{
+		this.mvc.perform(post("/par/parent")
+			.contentType(MediaType.APPLICATION_JSON)
+			.content(" {\n" +
+				"    \"gender\": \"F\",\n" +
+				"    \"firstName\": \"Vanessa\",\n" +
+				"    \"middleName\": \"Melani\",\n" +
+				"    \"lastName\": \"Perez Pechorry\",\n" +
+				"    \"otherParentDetails\": \"Escritora\"\n" +
+				"}")).andExpect(status().isOk())
+			.andReturn();
+	}
+	
+	@Test
+	public void findAllParents()throws Exception{
+		this.mvc.perform(get("/par/parent"))
+			.andExpect(status().isOk())
+			.andExpect(content().contentType("application/json; charset=utf-8"));
+	}
+	
+	@Test
+	public void findParent() throws Exception{
+		this.mvc.perform(get("/par/parent/10"))
+			.andExpect(status().isOk())
+			.andExpect(content().contentType("application/json; charset=utf-8"));
+	}
+	
+	@Test
+	public void updateParent() throws Exception{
+		this.mvc.perform(put("/par/parent/17")
+			.contentType(MediaType.APPLICATION_JSON)
+			.content("  {\n" +
+				"        \"parentId\": 17,\n" +
+				"        \"gender\": \"M\",\n" +
+				"        \"firstName\": \"Pablo\",\n" +
+				"        \"middleName\": \"Julio\",\n" +
+				"        \"lastName\": \"Vasquez Wong\",\n" +
+				"        \"otherParentDetails\": \"Ingeniero Civil\"\n" +
+				"    }")).andExpect(status().isOk())
+			.andReturn();
+	}
+	
+	@Test
+	public void deleteParent() throws Exception {
+		this.mvc.perform(delete ("/par/parent/11"))
+			.andExpect(status().isOk())
+			.andReturn();
+	}
+}
+
+@JsonIgnoreProperties({"parents", "gender", "dateOfBirth", "otherStudentDetails"})
+
+
+
+===================================================================
+
+ @PostMapping("/create")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void addStudentParents(@RequestBody Student_Parent obj){
+        LOG.info("com.ejemplo2.ejemplo2.Controller - addStudentParents");
+        iStudentParent.addStudentParent(obj);
+    }
+
+
+
+
+
+
+logging.level.root=error
+logging.level.org.org.springframework.web=error
+logging.level.com=debug
+
+# Logging pattern for the console
+logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss} - %msg%n
+
+# Logging pattern for file
+logging.pattern.file=%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
+#logging.path=logs
+
+#ubicacion del archivo log
+logging.file=C:/Users/logback-log/application.log
+#-DLogback.configurationFile=/path/to/Logback.xml
+
+spring.output.ansi.enabled=always
+
+
+
+
+
+
+package com.trainee.family.conf;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class LogbackConfig {
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	
+	public void performTask() {
+		logger.debug("This is a debug message.");
+		logger.info("This is an info message.");
+		logger.warn("This is a warn message.");
+		logger.error("This is an error message.");
+		
+	}
+}
+
+<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>5.1.4.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>5.1.4.RELEASE</version>
+		</dependency>
+
+
+
+
+
+package com.trainee.family.conf;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.RestController;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+import java.util.Collections;
+
+/*
+ *   Class Swagger
+ * */
+@EnableSwagger2
+@Configuration
+public class SwaggerConfig {
+	@Bean
+	public Docket api() {
+		return new Docket(DocumentationType.SWAGGER_2)
+			.select()
+			.apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))
+			.paths(PathSelectors.any())
+			.build()
+			.apiInfo(apiInfo());
+	}
+	
+	/*
+	 *   Documentation
+	 * */
+	private ApiInfo apiInfo() {
+		return new ApiInfo(
+			"Spring boot RestfullApi",
+			"BootCamp Trainee Everis 2019",
+			"V 1.0.0",
+			"Terms of controller",
+			new Contact("Herbert Daniel Chaicha Oca�a", "https://linkedin/herbeth-daniel-chaicha-oca�a",
+				"evrchaicha@gmail.com"), "License of Spring boot Restfull",
+			"Spring boot license URL", Collections.emptyList());
+	}
+}
+
+
+<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.8.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.8.0</version>
+		</dependency>
+
+
+ @NotEmpty(message = "the name is required")
+
+https://jayvilalta.com/blog/2016/04/28/installing-docker-toolbox-on-windows-with-hyper-v-installed/
+
+"${DOCKERMACHINE}" create -d virtualbox --virtualbox-no-vtx-check $PROXYENV "${VM}"
+
+bcdedit /set hypervisorlaunchtype off
+
+***************************************************************
+
+https://www.youtube.com/watch?v=uWWKQhpGWPw
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+https://www.youtube.com/watch?v=rlS9eH5tEnY
+///////////////////////////////////////////////////////////////////////////////////// eureka
+
+https://www.baeldung.com/spring-cloud-netflix-eureka
+
+///////////////////////////////////////////////////////////////////////////////////// zuul
+https://howtodoinjava.com/spring-cloud/spring-cloud-api-gateway-zuul/
+
+
+
+<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-hystrix -->
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+    <version>2.0.2.RELEASE</version>
+</dependency>
+
+
+https://www.tutorialspoint.com/spring_boot/spring_boot_hystrix.htm
+
+https://www.baeldung.com/spring-cloud-netflix-hystrix
+
+Errores
+https://howtodoinjava.com/spring-boot2/spring-rest-request-validation/
+
+//************** Hystrix lml **************//
+https://howtodoinjava.com/spring-cloud/spring-hystrix-circuit-breaker-tutorial/
+
+
+https://blog.crafties.fr/2017/07/23/setup-a-circuit-breaker-with-hystrix/
+
+
+package com.example.proyecto.entity;
+
+import lombok.Data;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Data
+@Entity
+@Table(name = "student_classes")
+public class StudentClasses {
+
+    @EmbeddedId
+    private StudentClassesPK studentClassesPk;
+
+    private Date dateTo;
+    
+}
+
+package com.example.proyecto.entity;
+
+import lombok.Data;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
+
+@Data
+@Embeddable
+public class StudentClassesPK implements Serializable {
+
+    @ManyToOne
+    @JoinColumn(name = "student_id", referencedColumnName = "student_id", nullable = false)
+    private Students studentId;
+
+    @ManyToOne
+    @JoinColumn(name = "class_id", referencedColumnName = "class_id", nullable = false)
+    private Classes classId;
+
+    @Column(name = "date_from")
+    private Date dateFrom;
+
+}
+  @OneToMany(mappedBy = "studentClassesPk.studentId", fetch = FetchType.EAGER)
+    private List<StudentClasses> ltaStudentClasses;
+
+
+
+@Temporal(TemporalType.DATE)
+  @JsonFormat(shape = JsonFormat.Shape.STRING,
+      pattern = "dd/MM/yyyy", timezone = "America/Bogota", locale = "es_PE")
+
+<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.8.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.8.0</version>
+		</dependency>
+
+--------------------------------------------------------------------------
+https://www.youtube.com/watch?v=m6maOxjzVFM
+-------------------------------------------------------------------------------
+
+<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+
+# H2
+#spring.h2.console.enabled=true
+#spring.h2.console.path=/h2-console
+# Datasource
+#spring.datasource.url=jdbc:h2:file:~/test
+#spring.datasource.username=sa
+#spring.datasource.password=
+#spring.datasource.driver-class-name=org.h2.Driver
+
+------------------------------------------------------
+COMENTARIOS JAVADOC
+/**
+   * Metodo que se encarga de registrar una profesor.
+   * @param obj es el objeto de la clase Profesor
+   * @return profesor
+   */
+  @PostMapping
+  @ResponseStatus(HttpStatus.CREATED)
+  public Teacher addTeacher(@Valid @RequestBody Teacher obj) {
+    return teacherService.addTeacher(obj);
+  }
+---------------------------------------------------------
+
+
+@RestController
+@RequestMapping("/classes")
+@Api(value = "Class Management System")
+public class ClassController {
+  private static final Logger LOGGER = LoggerFactory.getLogger("classesController");
+  
+  @Autowired
+  private ClassService classService;
+ 
+  @ApiOperation(value = "Add an Class")
+  @PostMapping
+  @ResponseStatus(HttpStatus.CREATED)
+  public void createClass(@ApiParam(value = "Class object store in database table",
+      required = true)@Valid @RequestBody Class classes) {
+    classService.createClass(classes);
+  }
+ 
+  @ApiOperation(value = "Update an Class")
+  @PutMapping(value = "/{id}")
+  @ResponseStatus(HttpStatus.OK)
+  public void updateClass(
+      @ApiParam(value = "Class Id to update Class object", required = true)
+      @PathVariable(value = "id") Integer classId,
+      @ApiParam(value = "Update Class object", required = true)
+      @Valid @RequestBody Class classDetails) {
+    Class classes = classService.findClass(classId);
+    
+    LOGGER.info("Going to Update");
+    classes.setSubject(classDetails.getSubject());
+    classes.setTeacher(classDetails.getTeacher());
+    classes.setClassCode(classDetails.getClassCode());
+    classes.setClassName(classDetails.getClassName());
+    classes.setDateFrom(classDetails.getDateFrom());
+    classes.setDateTo(classDetails.getDateTo());
+    classService.createClass(classDetails);
+ 
+  }
+ 
+  @ApiOperation(value = "View a list of available Subject", response = List.class)
+  @ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved list"),
+      @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+      @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach..."),
+      @ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
+  @GetMapping
+  public List<Class> findAllClass() {
+    return classService.findAllClass();
+  }
+ 
+  @ApiOperation(value = "Get an Subject by Id")
+  @GetMapping("/{id}")
+  public Class findClass(
+      @Valid @PathVariable(name = "id")Integer classId)  {
+    Class classes = classService.findClass(classId);
+    return classes;
+  }
+ 
+  @ApiOperation(value = "Delete an Class")
+  @ResponseStatus(HttpStatus.NO_CONTENT)
+  @DeleteMapping("/{id}")
+  public Class deleteClass(
+      @ApiParam(value = "Class Id from which Class object will delete from ...", required = true)
+      @Valid @PathVariable(name = "id")Integer classId)  {
+    Class classes = classService.findClass(classId);
+
+    LOGGER.info("Going to Delete");
+    classService.deleteClass(classId);
+    return classes;
+
+  }
+  
+  @GetMapping("/{id}/students")
+  public ClassStudentRequest findClassStudent(@PathVariable("id")Integer id) {
+    return classService.findClassStudent(id);
+  }
+}
+
+spring:
+  application:
+    name: zuul-server
+zuul:
+  routes:
+    student-service:
+      path: /student-api/**
+      url: http://localhost:8080/api/v1.0
+    school-service:
+      path: /school-api/**
+      url: http://localhost:8081/api/v1.0
+server:
+  port: 8762
+
+https://www.programcreek.com/java-api-examples/index.php?api=io.swagger.annotations.ApiParam
