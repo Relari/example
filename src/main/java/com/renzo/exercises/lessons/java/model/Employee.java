@@ -17,9 +17,10 @@ public class Employee {
 
   private Integer id;
   private String name;
+  private Integer age;
+  private Gender sex;
   private String position;
-  private Double salary;
-  private String sex;
-  private Boolean status;
+  private Integer salary;
+  private Boolean active;
 
 }

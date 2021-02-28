@@ -1,4 +1,4 @@
-package com.renzo.exercises.lessons.java;
+package com.renzo.exercises.lessons.java.example.test;
 
 import com.google.gson.Gson;
 import java.io.File;

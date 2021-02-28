@@ -11,8 +11,8 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.renzo</groupId>
-    <artifactId>exercises</artifactId>
+    <groupId>com.renzo.exercises</groupId>
+    <artifactId>lessons</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
     <properties>

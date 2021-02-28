@@ -1,5 +1,6 @@
-package com.renzo.exercises.model;
+package com.renzo.exercises.lessons.java.model;
 
+//import com.renzo.exercises.lessons.kotlin.model.PersonKt;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
