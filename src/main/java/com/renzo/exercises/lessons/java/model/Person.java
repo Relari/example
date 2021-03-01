@@ -3,15 +3,19 @@ package com.renzo.exercises.lessons.java.model;
 //import com.renzo.exercises.lessons.kotlin.model.PersonKt;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
+@Setter
 @Getter
 @ToString
+@NoArgsConstructor
 @AllArgsConstructor
 public class Person {
 
-  private final Integer id;
-  private final String name;
+  private Integer id;
+  private String name;
 
   public static void main(String[] args) {
 
