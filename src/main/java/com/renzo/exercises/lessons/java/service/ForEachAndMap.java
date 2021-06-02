@@ -16,11 +16,30 @@ public class ForEachAndMap {
         System.out.println("\n--------------------------------------\n");
     }
 
-    public void foreachConvertJava7(){
+    public void foreachConvertJava7FirstShape(){
         System.out.println("Foreach en Java 7");
 
         List<Person> people = new ArrayList<>();
 
+        for (int i = 0; i < employees.size(); i++) {
+
+            Employee employee = employees.get(i);
+            people.add(new Person(employee.getId(), employee.getName()));
+
+            System.out.println(employee);
+        }
+
+        separation();
+
+        for (int i = 0; i < people.size(); i++) {
+            System.out.println(people.get(i));
+        }
+    }
+
+    public void foreachConvertJava7SecondShape(){
+        System.out.println("Foreach en Java 7");
+
+        List<Person> people = new ArrayList<>();
 
         for (Employee employee : employees) {
             people.add(new Person(employee.getId(), employee.getName()));
@@ -70,7 +89,10 @@ public class ForEachAndMap {
 
         ForEachAndMap forEachAndMap = new ForEachAndMap();
 
-        forEachAndMap.foreachConvertJava7();
+        forEachAndMap.foreachConvertJava7FirstShape();
+        separation();
+
+        forEachAndMap.foreachConvertJava7SecondShape();
         separation();
 
         forEachAndMap.foreachWithStreamAndMap();

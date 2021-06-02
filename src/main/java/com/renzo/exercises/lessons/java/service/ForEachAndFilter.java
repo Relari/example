@@ -13,7 +13,17 @@ public class ForEachAndFilter {
         System.out.println("\n--------------------------------------\n");
     }
 
-    public void foreachAndIfInJava7() {
+    public void foreachAndIfInJava7FirstShape() {
+        System.out.println("Foreach + Conditional en Java 7");
+
+        for (int i = 0; i < employees.size(); i++) {
+            if (employees.get(i).getActive()) {
+                System.out.println(employees.get(i));
+            }
+        }
+    }
+
+    public void foreachAndIfInJava7SecondShape() {
         System.out.println("Foreach + Conditional en Java 7");
         for (Employee employee : employees) {
             if (employee.getActive()) {
@@ -40,7 +50,10 @@ public class ForEachAndFilter {
 
         ForEachAndFilter forEachAndFilter = new ForEachAndFilter();
 
-        forEachAndFilter.foreachAndIfInJava7();
+        forEachAndFilter.foreachAndIfInJava7FirstShape();
+        separation();
+
+        forEachAndFilter.foreachAndIfInJava7SecondShape();
         separation();
 
         forEachAndFilter.foreachAndFilterJava8();
