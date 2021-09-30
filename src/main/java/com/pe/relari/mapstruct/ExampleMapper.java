@@ -1,7 +1,7 @@
-package com.renzo.exercises.lessons.java.mapper;
+package com.pe.relari.mapstruct;
 
-import com.renzo.exercises.lessons.java.model.mapper.CurrencyDetail;
-import com.renzo.exercises.lessons.java.model.mapper.Limit;
+import com.pe.relari.mapstruct.model.CurrencyDetail;
+import com.pe.relari.mapstruct.model.Limit;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;

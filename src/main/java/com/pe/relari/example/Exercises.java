@@ -1,8 +1,9 @@
-package com.renzo.exercises.lessons.java.example;
+package com.pe.relari.example;
 
-import com.renzo.exercises.lessons.java.model.Employee;
-import com.renzo.exercises.lessons.java.repository.EmployeeRepository;
+import com.pe.relari.model.Employee;
+import com.pe.relari.repository.EmployeeRepository;
 
+import java.io.IOException;
 import java.util.Comparator;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class Exercises {
 		System.out.println("\n--------------------------------------\n");
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		final List<Employee> employees = EmployeeRepository.employees();
 
@@ -30,7 +31,7 @@ public class Exercises {
 
 		// Obtener todos los trabajadores que son managers y son mujeres
 		employees.stream()
-				.filter(y -> y.getPosition().equals("manager") & y.getSex().name().equals("F"))
+				.filter(y -> y.getPosition().equals("manager") & y.getSex().equals("F"))
 				.forEach(System.out::println);
 
 		separation();
@@ -67,7 +68,7 @@ public class Exercises {
 
 		separation();
 		employees.stream()
-				.filter(p -> p.getSex().name().equals("F"))
+				.filter(p -> p.getSex().equals("F"))
 				.forEach(System.out::println);
 	}
 }

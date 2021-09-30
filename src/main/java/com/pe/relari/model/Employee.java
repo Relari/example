@@ -1,4 +1,4 @@
-package com.renzo.exercises.lessons.java.model;
+package com.pe.relari.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,8 +17,7 @@ public class Employee {
 
   private Integer id;
   private String name;
-  private Integer age;
-  private Gender sex;
+  private String sex;
   private String position;
   private Integer salary;
   private Boolean active;

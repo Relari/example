@@ -1,4 +1,4 @@
-package com.renzo.exercises.lessons.java.model.mapper;
+package com.pe.relari.mapstruct.model;
 
 import lombok.Getter;
 import lombok.Setter;

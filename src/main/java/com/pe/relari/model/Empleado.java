@@ -1,4 +1,4 @@
-package com.renzo.exercises.lessons.java.model.normal;
+package com.pe.relari.model;
 
 public class Empleado {
 

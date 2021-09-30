@@ -1,4 +1,4 @@
-package com.renzo.exercises.lessons.java.example.test;
+package com.pe.relari.repository;
 
 import com.google.gson.Gson;
 import java.io.File;
@@ -7,10 +7,10 @@ import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.List;
 
-import com.renzo.exercises.lessons.java.model.Employee;
+import com.pe.relari.model.Employee;
 import org.springframework.core.io.ClassPathResource;
 
-public class ApplicationJson {
+public class EmployeeRepository {
 
   public static List<Employee> employees() throws IOException {
     File resource = new ClassPathResource("employees.json").getFile();

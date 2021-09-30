@@ -1,4 +1,4 @@
-package com.renzo.exercises.lessons.java.example.test;
+package com.pe.relari.example;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;

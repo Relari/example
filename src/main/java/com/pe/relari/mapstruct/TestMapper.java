@@ -1,7 +1,6 @@
-package com.renzo.exercises.lessons.java.example.test;
+package com.pe.relari.mapstruct;
 
-import com.renzo.exercises.lessons.java.mapper.ExampleMapperImpl;
-import com.renzo.exercises.lessons.java.model.mapper.Limit;
+import com.pe.relari.mapstruct.model.Limit;
 
 public class TestMapper {
 
