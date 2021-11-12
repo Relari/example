@@ -1,0 +1,14 @@
+server:
+  port: 8081
+  error:
+    include-message: always
+
+logging:
+  level:
+    com.example.demo: TRACE
+
+application:
+  info:
+    directory: '@project.basedir@'
+    name: '@project.name@'
+    home: ${user.home}
