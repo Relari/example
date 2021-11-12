@@ -20,6 +20,6 @@ public class Employee {
   private String sex;
   private String position;
   private Integer salary;
-  private Boolean active;
+  private Boolean status;
 
 }

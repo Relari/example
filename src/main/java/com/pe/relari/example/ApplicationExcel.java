@@ -1,5 +1,6 @@
 package com.pe.relari.example;
 
+import com.pe.relari.repository.EmployeeRepository;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -92,11 +93,11 @@ class ApplicationExcel {
 //        }
 //    }
 
-    void createExcel() {
+    void createExcel() throws IOException {
         // Creamos el archivo donde almacenaremos la hoja
         // de calculo, recuerde usar la extension correcta,
         // en este caso .xlsx
-        File archivo = new File(PATH_NAME);
+        File file = new File(PATH_NAME);
 
         // Creamos el libro de trabajo de Excel formato OOXML
         Workbook workbook = new XSSFWorkbook();
@@ -111,15 +112,13 @@ class ApplicationExcel {
         style.setFillForegroundColor(IndexedColors.AQUA.getIndex());
         style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 
-        String[] titulos = {"Identificador", "Consumos",
-                "Precio Venta", "Precio Compra"};
-        Double[] datos = {1.0, 10.0, 45.5, 25.50};
+        String[] title = {"id", "name", "sex", "position", "salary", "status"};
 
         // Creamos una fila en la hoja en la posicion 0
         Row fila = pagina.createRow(0);
 
         // Creamos el encabezado
-        for (int i = 0; i < titulos.length; i++) {
+        for (int i = 0; i < title.length; i++) {
             // Creamos una celda en esa fila, en la posicion
             // indicada por el contador del ciclo
             Cell celda = fila.createCell(i);
@@ -128,19 +127,28 @@ class ApplicationExcel {
             // usar en la celda, en este caso el unico
             // que hemos creado
             celda.setCellStyle(style);
-            celda.setCellValue(titulos[i]);
+            celda.setCellValue(title[i]);
         }
 
-        // Ahora creamos una fila en la posicion 1
-        fila = pagina.createRow(1);
+        var employees = EmployeeRepository.employees();
 
         // Y colocamos los datos en esa fila
-        for (int i = 0; i < datos.length; i++) {
+        for (int i = 0; i < employees.size(); i++) {
+
+            // Ahora creamos una fila en la posicion 1
+            fila = pagina.createRow(i + 1);
+
             // Creamos una celda en esa fila, en la
             // posicion indicada por el contador del ciclo
-            Cell celda = fila.createCell(i);
 
-            celda.setCellValue(datos[i]);
+            var employee = employees.get(i);
+
+            fila.createCell(0).setCellValue(employee.getId());
+            fila.createCell(1).setCellValue(employee.getName());
+            fila.createCell(2).setCellValue(employee.getSex());
+            fila.createCell(3).setCellValue(employee.getPosition());
+            fila.createCell(4).setCellValue(employee.getSalary());
+            fila.createCell(5).setCellValue(employee.getStatus());
         }
 
         // Ahora guardaremos el archivo
@@ -148,7 +156,7 @@ class ApplicationExcel {
             // Creamos el flujo de salida de datos,
             // apuntando al archivo donde queremos
             // almacenar el libro de Excel
-            FileOutputStream salida = new FileOutputStream(archivo);
+            FileOutputStream salida = new FileOutputStream(file);
 
             // Almacenamos el libro de
             // Excel via ese
@@ -167,7 +175,7 @@ class ApplicationExcel {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         var file = new File(PATH_NAME);
 
