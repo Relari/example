@@ -1,5 +1,6 @@
 package com.pe.relari.example;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -9,6 +10,7 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 class ApplicationExcel {
 
     ApplicationExcel(File fileName) {
@@ -54,11 +56,11 @@ class ApplicationExcel {
         for (int i = 0; i < cells.size(); i++) {
 
             if (i == 0) {
-                System.out.println("----------title----------------");
-                System.out.println(cells.get(i).toString());
-                System.out.println("-------------------------------");
+                log.info("----------title----------------");
+                log.info(cells.get(i).toString());
+                log.info("-------------------------------");
             } else {
-                System.out.println(cells.get(i).toString());
+                log.info(cells.get(i).toString());
             }
         }
     }
@@ -81,7 +83,9 @@ class ApplicationExcel {
 
     public static void main(String[] args) {
 
-        var file = new File("C:/Users/cld_r/Desktop/data.xlsx");
+        var locationFile = System.getProperty("user.home").concat("/Desktop/data.xlsx");
+
+        var file = new File(locationFile);
 
         if(file.exists()) {
             new ApplicationExcel(file);
