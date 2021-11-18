@@ -1,7 +1,7 @@
-package com.pe.relari.mapstruct;
+package com.pe.relari.example.mapstruct;
 
-import com.pe.relari.mapstruct.model.CurrencyDetail;
-import com.pe.relari.mapstruct.model.Limit;
+import com.pe.relari.example.mapstruct.model.CurrencyDetail;
+import com.pe.relari.example.mapstruct.model.Limit;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;

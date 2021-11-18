@@ -1,6 +1,6 @@
 package com.pe.relari.example;
 
-import com.pe.relari.repository.EmployeeRepository;
+import com.pe.relari.example.repository.EmployeeRepository;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

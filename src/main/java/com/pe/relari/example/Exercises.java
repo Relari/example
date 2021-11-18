@@ -1,7 +1,7 @@
 package com.pe.relari.example;
 
-import com.pe.relari.model.Employee;
-import com.pe.relari.repository.EmployeeRepository;
+import com.pe.relari.example.model.Employee;
+import com.pe.relari.example.repository.EmployeeRepository;
 
 import java.io.IOException;
 import java.util.Comparator;

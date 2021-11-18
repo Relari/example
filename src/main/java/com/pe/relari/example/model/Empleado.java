@@ -1,4 +1,4 @@
-package com.pe.relari.model;
+package com.pe.relari.example.model;
 
 public class Empleado {
 

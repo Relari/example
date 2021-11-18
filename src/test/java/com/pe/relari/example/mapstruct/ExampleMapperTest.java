@@ -1,8 +1,8 @@
-package com.pe.relari.mapstruct;
+package com.pe.relari.example.mapstruct;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.pe.relari.mapstruct.model.Limit;
+import com.pe.relari.example.mapstruct.model.Limit;
 import org.junit.jupiter.api.Test;
 
 class ExampleMapperTest {

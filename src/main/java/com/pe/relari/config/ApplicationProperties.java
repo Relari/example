@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Lazy;
 @Lazy
 @Configuration
 @ConfigurationProperties(prefix = "application.info")
-public class DemoConfig {
+public class ApplicationProperties {
 
     private String directory;
     private String name;

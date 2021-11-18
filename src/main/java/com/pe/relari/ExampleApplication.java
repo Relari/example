@@ -1,7 +1,7 @@
 package com.pe.relari;
 
-import com.pe.relari.config.DemoConfig;
-import com.pe.relari.model.Demo;
+import com.pe.relari.config.ApplicationProperties;
+import com.pe.relari.example.model.Demo;
 import io.reactivex.Single;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @Slf4j
 @SpringBootApplication
-public class DemoApplication implements CommandLineRunner {
+public class ExampleApplication implements CommandLineRunner {
 
 	private static final String ACTIVE_CODE = "OK";
 
@@ -19,7 +19,7 @@ public class DemoApplication implements CommandLineRunner {
 	private static final Demo DEMO_INACTIVE = new Demo("ERROR", "inactive");
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class);
+		SpringApplication.run(ExampleApplication.class);
 	}
 
 	void setDemoActive () {
@@ -41,12 +41,12 @@ public class DemoApplication implements CommandLineRunner {
 	}
 
 	@Autowired
-	private DemoConfig demoConfig;
+	private ApplicationProperties applicationProperties;
 
 	@Override
 	public void run(String... args) throws Exception {
 
-		log.info(demoConfig.getHome());
+		log.info(applicationProperties.getHome());
 
 	}
 }

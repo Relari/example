@@ -1,4 +1,4 @@
-package com.pe.relari.mapstruct.model;
+package com.pe.relari.example.mapstruct.model;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,21 +1,22 @@
-package com.pe.relari.model;
+package com.pe.relari.people.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
-@Getter
-@Setter
+/**
+ * Class EmployeeEntity.
+ * @author Relari
+ */
+
+@Data
 @Builder
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class Employee {
+public class EmployeeEntity {
 
-  private Integer id;
+  private String id;
   private String name;
   private String sex;
   private String position;

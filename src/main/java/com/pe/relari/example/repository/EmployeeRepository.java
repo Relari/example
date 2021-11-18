@@ -1,4 +1,4 @@
-package com.pe.relari.repository;
+package com.pe.relari.example.repository;
 
 import com.google.gson.Gson;
 import java.io.File;
@@ -7,7 +7,7 @@ import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.List;
 
-import com.pe.relari.model.Employee;
+import com.pe.relari.example.model.Employee;
 import org.springframework.core.io.ClassPathResource;
 
 public class EmployeeRepository {
