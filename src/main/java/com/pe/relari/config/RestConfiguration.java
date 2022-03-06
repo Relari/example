@@ -16,15 +16,15 @@ public class RestConfiguration {
 
   private static Retrofit retrofit() {
 
-//    OkHttpClient okHttpClient = new OkHttpClient();
-//    okHttpClient.connectTimeoutMillis();
-//    okHttpClient.readTimeoutMillis();
-//    okHttpClient.writeTimeoutMillis();
+    OkHttpClient okHttpClient = new OkHttpClient();
+    okHttpClient.connectTimeoutMillis();
+    okHttpClient.readTimeoutMillis();
+    okHttpClient.writeTimeoutMillis();
 
     return new Retrofit.Builder()
         .baseUrl("https://employee-firebase.herokuapp.com/")
         .addConverterFactory(GsonConverterFactory.create())
-//        .client(new OkHttpClient())
+        .client(okHttpClient)
         .build();
   }
 

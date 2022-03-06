@@ -4,8 +4,6 @@ import static com.pe.relari.config.RestConfiguration.employeeApi;
 
 import com.pe.relari.people.dao.EmployeeDao;
 import com.pe.relari.people.model.domain.Employee;
-import com.pe.relari.people.service.EmployeeService;
-import com.pe.relari.people.service.impl.EmployeeServiceImpl;
 import lombok.extern.java.Log;
 
 import java.io.IOException;
