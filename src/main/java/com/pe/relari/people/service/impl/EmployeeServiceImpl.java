@@ -1,6 +1,5 @@
 package com.pe.relari.people.service.impl;
 
-import com.pe.relari.people.dao.impl.EmployeeMapper;
 import com.pe.relari.people.dao.impl.EmployeeRepositoryImpl;
 import com.pe.relari.people.dao.repository.EmployeeRepository;
 import com.pe.relari.people.model.domain.Employee;

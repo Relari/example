@@ -1,4 +1,4 @@
-package com.pe.relari.people.dao.impl;
+package com.pe.relari.people.service.impl;
 
 import com.pe.relari.people.model.domain.Employee;
 import com.pe.relari.people.model.entity.EmployeeEntity;
