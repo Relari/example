@@ -2,7 +2,6 @@ package com.pe.relari.people.dao.impl;
 
 import com.pe.relari.config.DatabaseConfig;
 import com.pe.relari.people.dao.repository.EmployeeRepository;
-import com.pe.relari.people.model.domain.Employee;
 import java.awt.HeadlessException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

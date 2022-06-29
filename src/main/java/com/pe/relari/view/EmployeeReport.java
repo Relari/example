@@ -18,7 +18,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class EmployeeReport extends javax.swing.JFrame {
 
-    private final DefaultTableModel defaultTableModel = new DefaultTableModel();
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -1024157165236900427L;
+	private final DefaultTableModel defaultTableModel = new DefaultTableModel();
 
     public EmployeeReport() {
         initComponents();

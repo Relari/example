@@ -9,7 +9,6 @@ import com.pe.relari.people.model.domain.Employee;
 import com.pe.relari.people.service.EmployeeService;
 import com.pe.relari.people.service.impl.EmployeeServiceImpl;
 
-import java.io.IOException;
 import java.util.UUID;
 
 /**
@@ -19,6 +18,10 @@ import java.util.UUID;
 public class EmployeeRegister extends javax.swing.JFrame {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = -4954024781507192491L;
+	/**
      * Creates new form Register
      */
 

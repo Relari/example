@@ -5,8 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-
 /**
  * Class Employee.
  * @author Relari
@@ -16,7 +14,7 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Employee implements Serializable {
+public class Employee {
 
   private String id;
   private String name;
