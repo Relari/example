@@ -5,10 +5,10 @@
  */
 package com.pe.relari.view;
 
-import com.pe.relari.people.dao.impl.EmployeeDaoImpl;
+import com.pe.relari.people.service.EmployeeService;
+import com.pe.relari.people.service.impl.EmployeeServiceImpl;
 import com.pe.relari.people.util.EmployeeUtil;
 
-import java.io.IOException;
 import java.util.Arrays;
 import javax.swing.table.DefaultTableModel;
 
@@ -18,25 +18,24 @@ import javax.swing.table.DefaultTableModel;
  */
 public class EmployeeReport extends javax.swing.JFrame {
 
-    /**
-     * Creates new form EmployeeReport
-     */
-    
     private final DefaultTableModel defaultTableModel = new DefaultTableModel();
 
     public EmployeeReport() {
         initComponents();
         titleColumn();
 
-        try {
-            EmployeeDaoImpl.getInstance().findAll()
-                    .forEach(employee -> {
-                        Object [] row = EmployeeUtil.rowEmployee(employee);
-                        defaultTableModel.addRow(row);
-                    });
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        /**
+         * Creates new form EmployeeReport
+         */
+        EmployeeService employeeService = EmployeeServiceImpl.getInstance();
+        employeeService.findAll()
+                .forEach(employee -> {
+                    Object [] row = EmployeeUtil.rowEmployee(employee);
+                    defaultTableModel.addRow(row);
+                });
+
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
     }
 

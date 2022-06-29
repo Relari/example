@@ -5,9 +5,12 @@
  */
 package com.pe.relari.view;
 
-import com.pe.relari.people.dao.impl.EmployeeDaoImpl;
 import com.pe.relari.people.model.domain.Employee;
+import com.pe.relari.people.service.EmployeeService;
+import com.pe.relari.people.service.impl.EmployeeServiceImpl;
+
 import java.io.IOException;
+import java.util.UUID;
 
 /**
  * Class EmployeeRegister.
@@ -18,11 +21,12 @@ public class EmployeeRegister extends javax.swing.JFrame {
     /**
      * Creates new form Register
      */
-    
+
     private static final String EMPTY = "";
         
     public EmployeeRegister() {
         initComponents();
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
     
     private void clearField() {
@@ -167,17 +171,17 @@ public class EmployeeRegister extends javax.swing.JFrame {
         if (!name.isBlank() || !position.isBlank() || !salary.isBlank()) {
             
             var employee = Employee.builder()
+                    .id(UUID.randomUUID().toString())
                     .name(name)
                     .position(position)
                     .salary(Integer.parseInt(salary))
                     .sex(gender)
+                    .status(Boolean.TRUE)
                     .build();
-            
-            try {
-                EmployeeDaoImpl.getInstance().save(employee);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+
+            EmployeeService employeeService = EmployeeServiceImpl.getInstance();
+            employeeService.save(employee);
+
             clearField();
             
         }
