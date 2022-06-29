@@ -1,11 +1,12 @@
 package com.pe.relari.people.service.impl;
 
-
+import com.pe.relari.people.dao.impl.EmployeeMapper;
 import com.pe.relari.people.dao.impl.EmployeeRepositoryImpl;
 import com.pe.relari.people.dao.repository.EmployeeRepository;
 import com.pe.relari.people.model.domain.Employee;
 import com.pe.relari.people.service.EmployeeService;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Class EmployeeServiceImpl.
@@ -31,12 +32,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 
   @Override
   public List<Employee> findAll() {
-    return employeeRepository.findAll();
+    return employeeRepository.findAll()
+            .stream()
+            .map(EmployeeMapper::mapEmployee)
+            .collect(Collectors.toList());
   }
 
   @Override
   public void save(Employee employee) {
-    employeeRepository.save(employee);
+    var employeeEntity = EmployeeMapper.mapEmployeeEntity(employee);
+    employeeRepository.save(employeeEntity);
   }
 
 }

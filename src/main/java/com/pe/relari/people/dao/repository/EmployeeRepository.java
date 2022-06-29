@@ -1,6 +1,7 @@
 package com.pe.relari.people.dao.repository;
 
 import com.pe.relari.people.model.domain.Employee;
+import com.pe.relari.people.model.entity.EmployeeEntity;
 
 import java.util.List;
 
@@ -10,15 +11,15 @@ import java.util.List;
  */
 public interface EmployeeRepository {
 
-    void save(Employee employee);
+    void save(EmployeeEntity employee);
 
-    void update(Employee employee);
+    void update(EmployeeEntity employee);
 
     void deleteById(int employeeId);
 
-    Employee findById(int employeeId);
+    EmployeeEntity findById(int employeeId);
 
-    List<Employee> findAll();
+    List<EmployeeEntity> findAll();
 
-    List<Employee> findByStatus(boolean status);
+    List<EmployeeEntity> findByStatus(boolean status);
 }

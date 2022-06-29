@@ -10,6 +10,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+
+import com.pe.relari.people.model.entity.EmployeeEntity;
 import lombok.extern.java.Log;
 
 /**
@@ -26,7 +28,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     private PreparedStatement preparedStatement = null;
 
     @Override
-    public void save(Employee person) {
+    public void save(EmployeeEntity person) {
         try {
             String sql = "insert into Employee"
                     + " (RUC_Employee,Nombre_Employee,Direccion,Telefono,Correo_Electronico,Contactos_Referencia,Estado)"
@@ -68,12 +70,12 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     @Override
-    public Employee findById(int employeeId) {
+    public EmployeeEntity findById(int employeeId) {
 
         String sql = "select Ruc_Employee, Nombre_Employee, Direccion, Telefono, Correo_Electronico, Contactos_Referencia,Estado"
                 + " from Employee where Ruc_Employee = ?";
 
-        Employee person = null;
+        EmployeeEntity person = null;
 
         try {
             preparedStatement = databaseConfig.getConnection().prepareStatement(sql);
@@ -81,7 +83,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-                person = mapEmployee(rs);
+                person = mapEmployeeEntity(rs);
 
             }
 
@@ -95,8 +97,8 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     @Override
-    public List<Employee> findAll() {
-        List<Employee> people = new ArrayList<>();
+    public List<EmployeeEntity> findAll() {
+        List<EmployeeEntity> people = new ArrayList<>();
 
         String sql = "select * from person;";
 
@@ -106,7 +108,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
-                Employee person = mapEmployee(rs);
+                EmployeeEntity person = mapEmployeeEntity(rs);
 
                 people.add(person);
             }
@@ -120,7 +122,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     @Override
-    public void update(Employee person) {
+    public void update(EmployeeEntity person) {
         try {
             String sql = "UPDATE Employee SET "
                     + "Nombre_Employee = ?,"
@@ -149,9 +151,9 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     @Override
-    public List<Employee> findByStatus(boolean status) {
+    public List<EmployeeEntity> findByStatus(boolean status) {
 
-        List<Employee> people = new ArrayList<>();
+        List<EmployeeEntity> people = new ArrayList<>();
 
         String sql = "select Ruc_Employee, Nombre_Employee, Direccion, Telefono, Correo_Electronico, Contactos_Referencia, Estado"
                 + " from Employee where Estado = ?";
@@ -163,7 +165,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
-                Employee person = mapEmployee(rs);
+                EmployeeEntity person = mapEmployeeEntity(rs);
 
                 people.add(person);
             }
@@ -176,8 +178,8 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
         return people;
     }
 
-    private Employee mapEmployee(ResultSet rs) throws SQLException {
-        return Employee.builder()
+    private EmployeeEntity mapEmployeeEntity(ResultSet rs) throws SQLException {
+        return EmployeeEntity.builder()
                 .id(rs.getString("Correo_Electronico"))
                 .name(rs.getString("Ruc_Employee"))
                 .sex(rs.getString("Nombre_Employee"))
