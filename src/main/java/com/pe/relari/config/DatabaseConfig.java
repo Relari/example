@@ -1,12 +1,9 @@
 package com.pe.relari.config;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Properties;
+import java.util.Objects;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -50,17 +47,16 @@ public class DatabaseConfig {
                     dbProperty.getPassword()
             );
         } catch (SQLException e) {
-            System.err.println("Error al conectar a la base de datos " + e.getMessage());
+            e.printStackTrace();
             return null;
         }
     }
 
     public void closeConnection() {
         try {
-            getConnection().close();
-            System.out.println("Se desconecto la base de datos");
+            Objects.requireNonNull(getConnection()).close();
         } catch (SQLException e) {
-            System.err.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }
