@@ -48,6 +48,8 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
             JOptionPane.showMessageDialog(null, "Se Grabo Correctamente", INFO, JOptionPane.INFORMATION_MESSAGE);
         } catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(null, "No se Grabo la Employee", ALERT, JOptionPane.WARNING_MESSAGE);
+        } finally {
+            databaseConfig.closeConnection();
         }
     }
 
