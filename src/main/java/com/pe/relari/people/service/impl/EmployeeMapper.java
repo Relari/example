@@ -15,22 +15,26 @@ public class EmployeeMapper {
   public static Employee mapEmployee(EmployeeEntity employeeEntity) {
     return Employee.builder()
             .id(employeeEntity.getId())
-            .name(employeeEntity.getName())
+            .fatherLastName(employeeEntity.getFatherLastName())
+            .motherLastName(employeeEntity.getMotherLastName())
+            .firstName(employeeEntity.getFirstName())
             .position(employeeEntity.getPosition())
             .salary(employeeEntity.getSalary())
             .sex(employeeEntity.getSex())
-            .status(employeeEntity.getStatus())
+            .isActive(employeeEntity.getIsActive())
             .build();
   }
 
   public static EmployeeEntity mapEmployeeEntity(Employee employee) {
     return EmployeeEntity.builder()
             .id(employee.getId())
-            .name(employee.getName())
+            .fatherLastName(employee.getFatherLastName())
+            .motherLastName(employee.getMotherLastName())
+            .firstName(employee.getFirstName())
             .position(employee.getPosition())
             .salary(employee.getSalary())
             .sex(employee.getSex())
-            .status(employee.getStatus())
+            .isActive(employee.getIsActive())
             .build();
   }
 

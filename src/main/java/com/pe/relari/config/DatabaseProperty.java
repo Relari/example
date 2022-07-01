@@ -19,7 +19,7 @@ class DatabaseProperty {
   static final String DRIVER_NAME = "org.postgresql.Driver";
   private static final String HOSTNAME = "localhost";
   static final String USERNAME = "postgres";
-  static final String PASSWORD = "";
+  static final String PASSWORD = "123456";
   private static final String DATABASE = "EMPLOYEE";
 
   public static String getUriConnection() {

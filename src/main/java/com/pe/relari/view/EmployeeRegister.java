@@ -9,8 +9,6 @@ import com.pe.relari.people.model.domain.Employee;
 import com.pe.relari.people.service.EmployeeService;
 import com.pe.relari.people.service.impl.EmployeeServiceImpl;
 
-import java.util.UUID;
-
 /**
  * Class EmployeeRegister.
  * @author Relari
@@ -174,12 +172,13 @@ public class EmployeeRegister extends javax.swing.JFrame {
         if (!name.isBlank() || !position.isBlank() || !salary.isBlank()) {
             
             var employee = Employee.builder()
-                    .id(UUID.randomUUID().toString())
-                    .name(name)
+                    .fatherLastName(name)
+                    .motherLastName(name)
+                    .firstName(name)
                     .position(position)
-                    .salary(Integer.parseInt(salary))
+                    .salary(Double.valueOf(salary))
                     .sex(gender)
-                    .status(Boolean.TRUE)
+                    .isActive(Boolean.TRUE)
                     .build();
 
             EmployeeService employeeService = EmployeeServiceImpl.getInstance();

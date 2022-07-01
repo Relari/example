@@ -16,21 +16,25 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Employee {
 
-  private String id;
-  private String name;
-  private String sex;
+  private Integer id;
+  private String fatherLastName;
+  private String motherLastName;
+  private String firstName;
   private String position;
-  private Integer salary;
-  private Boolean status;
+  private String sex;
+  private Double salary;
+  private Boolean isActive;
 
   public EmployeeBuilder mutate() {
     return Employee.builder()
             .id(id)
-            .name(name)
+            .fatherLastName(fatherLastName)
+            .motherLastName(motherLastName)
+            .firstName(firstName)
             .sex(sex)
             .position(position)
             .salary(salary)
-            .status(status);
+            .isActive(isActive);
   }
 
 }

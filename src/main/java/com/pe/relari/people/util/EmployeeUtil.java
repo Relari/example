@@ -14,9 +14,9 @@ public class EmployeeUtil {
     public static Object [] rowEmployee(Employee employee) {
         return new Object[] {
                 employee.getId(),
-                employee.getName(),
+                employee.getFirstName(),
                 employee.getSex(),
-                employee.getStatus()
+                employee.getIsActive()
         };
     }
 }

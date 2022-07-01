@@ -39,7 +39,7 @@ public class DatabaseConfig {
 
         try {
             return DriverManager.getConnection(
-                    DatabaseProperty.getUriConnection(),
+                    "jdbc:postgresql://localhost:5432/db_demo",
                     DatabaseProperty.USERNAME,
                     DatabaseProperty.PASSWORD
             );
