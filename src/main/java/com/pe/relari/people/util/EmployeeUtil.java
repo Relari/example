@@ -1,6 +1,7 @@
 package com.pe.relari.people.util;
 
 import com.pe.relari.people.model.domain.Employee;
+import java.util.Map;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
@@ -18,5 +19,12 @@ public class EmployeeUtil {
                 employee.getSex(),
                 employee.getIsActive()
         };
+    }
+
+    public static String getSexCode(String sexDescription) {
+        return Map.of(
+                "Male", "M",
+                "Female","F"
+        ).get(sexDescription);
     }
 }

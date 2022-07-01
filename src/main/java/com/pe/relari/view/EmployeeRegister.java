@@ -8,6 +8,8 @@ package com.pe.relari.view;
 import com.pe.relari.people.model.domain.Employee;
 import com.pe.relari.people.service.EmployeeService;
 import com.pe.relari.people.service.impl.EmployeeServiceImpl;
+import com.pe.relari.people.util.EmployeeUtil;
+import java.util.Objects;
 
 /**
  * Class EmployeeRegister.
@@ -167,7 +169,9 @@ public class EmployeeRegister extends javax.swing.JFrame {
         var name = this.txtName.getText();
         var position = this.txtPosition.getText();
         var salary = this.txtSalary.getText();
-        var gender = this.cbxGender.getSelectedItem().toString();
+        var gender = Objects.requireNonNull(
+                this.cbxGender.getSelectedItem()
+        ).toString();
         
         if (!name.isBlank() || !position.isBlank() || !salary.isBlank()) {
             
@@ -177,7 +181,7 @@ public class EmployeeRegister extends javax.swing.JFrame {
                     .firstName(name)
                     .position(position)
                     .salary(Double.valueOf(salary))
-                    .sex(gender)
+                    .sex(EmployeeUtil.getSexCode(gender))
                     .isActive(Boolean.TRUE)
                     .build();
 

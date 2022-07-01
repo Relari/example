@@ -29,17 +29,19 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     @Override
     public void save(EmployeeEntity person) {
         try {
-            String sql = "insert into Employee"
-                    + " (RUC_Employee,Nombre_Employee,Direccion,Telefono,Correo_Electronico,Contactos_Referencia,Estado)"
-                    + " values (?,?,?,?,?,?,?);";
+            String sql = "INSERT INTO public.employee " +
+                    "(father_last_name, first_name, is_active, mother_last_name, position, salary, sex)" +
+                    "VALUES(?,?,?,?,?,?,?);";
 
             preparedStatement = databaseConfig.getConnection().prepareStatement(sql);
 
-//            preparedStatement.setString(1, person.getName());
-//            preparedStatement.setString(2, person.getSex());
-//            preparedStatement.setString(3, person.getPosition());
-//            preparedStatement.setInt(4, person.getSalary());
-//            preparedStatement.setBoolean(5, true);
+            preparedStatement.setString(1, person.getFatherLastName());
+            preparedStatement.setString(2, person.getFirstName());
+            preparedStatement.setBoolean(3, true);
+            preparedStatement.setString(4, person.getMotherLastName());
+            preparedStatement.setString(5, person.getPosition());
+            preparedStatement.setDouble(6, person.getSalary());
+            preparedStatement.setString(7, person.getSex());
 
             preparedStatement.executeUpdate();
 
