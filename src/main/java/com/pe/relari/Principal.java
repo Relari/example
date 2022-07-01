@@ -1,7 +1,7 @@
 package com.pe.relari;
 
-import com.pe.relari.people.dao.impl.EmployeeRepositoryImpl;
-import com.pe.relari.people.dao.repository.EmployeeRepository;
+import com.pe.relari.people.repository.EmployeeRepository;
+import com.pe.relari.people.repository.impl.EmployeeRepositoryImpl;
 
 public class Principal {
 

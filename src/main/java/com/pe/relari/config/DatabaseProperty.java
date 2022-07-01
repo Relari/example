@@ -5,24 +5,49 @@
  */
 package com.pe.relari.config;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
 /**
  *
  * @author cld_r
  */
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-class DatabaseProperty {
-    
-  static final String DRIVER_NAME = "org.postgresql.Driver";
-  private static final String HOSTNAME = "localhost";
-  static final String USERNAME = "postgres";
-  static final String PASSWORD = "123456";
-  private static final String DATABASE = "EMPLOYEE";
+public class DatabaseProperty {
 
-  public static String getUriConnection() {
-      return "jdbc:postgresql://".concat(HOSTNAME).concat("/").concat(DATABASE);
+  private static final String RESOURCES_DIRECTORY = System.getProperty("user.dir")
+          .concat("\\src\\main\\resources\\");
+  private static final Properties prop = new Properties();
+
+  public DatabaseProperty() {
+    getProperties();
+  }
+
+  private void getProperties() {
+
+    try (InputStream is = new FileInputStream(
+            RESOURCES_DIRECTORY.concat("application.properties"))) {
+      prop.load(is);
+    } catch(IOException ioe) {
+      ioe.printStackTrace();
+    }
+  }
+
+  public String getUsername() {
+    return prop.getProperty("db.username");
+  }
+
+  public String getPassword() {
+    return prop.getProperty("db.password");
+  }
+
+  public String getUrl() {
+    return prop.getProperty("db.url");
+  }
+
+  public String getDatabase() {
+    return prop.getProperty("db.database");
   }
 }

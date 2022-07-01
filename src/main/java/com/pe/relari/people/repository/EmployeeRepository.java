@@ -1,4 +1,4 @@
-package com.pe.relari.people.dao.repository;
+package com.pe.relari.people.repository;
 
 import com.pe.relari.people.model.entity.EmployeeEntity;
 
