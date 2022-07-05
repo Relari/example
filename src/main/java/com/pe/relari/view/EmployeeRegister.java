@@ -13,25 +13,26 @@ import java.util.Objects;
 
 /**
  * Class EmployeeRegister.
+ *
  * @author Relari
  */
 public class EmployeeRegister extends javax.swing.JFrame {
 
     /**
-	 * 
-	 */
-	private static final long serialVersionUID = -4954024781507192491L;
-	/**
+     *
+     */
+    private static final long serialVersionUID = -4954024781507192491L;
+    /**
      * Creates new form Register
      */
 
     private static final String EMPTY = "";
-        
+
     public EmployeeRegister() {
         initComponents();
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
-    
+
     private void clearField() {
         this.txtName.setText(EMPTY);
         this.txtPosition.setText(EMPTY);
@@ -165,16 +166,16 @@ public class EmployeeRegister extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-        
+
         var name = this.txtName.getText();
         var position = this.txtPosition.getText();
         var salary = this.txtSalary.getText();
         var gender = Objects.requireNonNull(
                 this.cbxGender.getSelectedItem()
         ).toString();
-        
+
         if (!name.isBlank() || !position.isBlank() || !salary.isBlank()) {
-            
+
             var employee = Employee.builder()
                     .fatherLastName(name)
                     .motherLastName(name)
@@ -189,14 +190,15 @@ public class EmployeeRegister extends javax.swing.JFrame {
             employeeService.save(employee);
 
             clearField();
-            
+
         }
-        
+
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        new EmployeeReport().setVisible(true);
+        EmployeeReport employeeReport = new EmployeeReport("Renzo");
+        employeeReport.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

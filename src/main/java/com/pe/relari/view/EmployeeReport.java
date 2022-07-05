@@ -11,31 +11,50 @@ import com.pe.relari.people.util.EmployeeUtil;
 
 import java.util.Arrays;
 import javax.swing.table.DefaultTableModel;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Class EmployeeReport.
+ *
  * @author Relari
  */
 public class EmployeeReport extends javax.swing.JFrame {
 
     /**
-	 * 
-	 */
-	private static final long serialVersionUID = -1024157165236900427L;
-	private final DefaultTableModel defaultTableModel = new DefaultTableModel();
+     *
+     */
+    private static final long serialVersionUID = -1024157165236900427L;
+    private final DefaultTableModel defaultTableModel = new DefaultTableModel();
+
+    @Setter
+    @Getter
+    private String nameEmployee;
 
     public EmployeeReport() {
+        init();
+    }
+
+    public EmployeeReport(String nameEmployee) {
+        init();
+
+        this.nameEmployee = nameEmployee;
+        
+        System.out.println(getNameEmployee());
+    }
+
+    private void init() {
         initComponents();
         titleColumn();
 
-
+        
         /**
          * Creates new form EmployeeReport
          */
         EmployeeService employeeService = EmployeeServiceImpl.getInstance();
         employeeService.findAll()
                 .forEach(employee -> {
-                    Object [] row = EmployeeUtil.rowEmployee(employee);
+                    Object[] row = EmployeeUtil.rowEmployee(employee);
                     defaultTableModel.addRow(row);
                 });
 
@@ -46,7 +65,7 @@ public class EmployeeReport extends javax.swing.JFrame {
     private void titleColumn() {
         Arrays.asList("Id", "Name", "Sex", "Status")
                 .forEach(defaultTableModel::addColumn);
-        
+
         this.tblEmployees.setModel(defaultTableModel);
     }
 
