@@ -25,21 +25,7 @@ public class DatabaseConfig {
         return instance;
     }
 
-//    private boolean loadDriver() {
-//        try {
-//            Class.forName(DatabaseProperty.DRIVER_NAME);
-//            return true;
-//        } catch (ClassNotFoundException e) {
-//            System.err.println("Error al cargar el driver " + e.getMessage());
-//            return false;
-//        }
-//    }
-
     public Connection getConnection() {
-//        if (!loadDriver()) {
-//            return null;
-//        }
-
         try {
             return DriverManager.getConnection(
                     dbProperty.getUrl().concat(dbProperty.getDatabase()),

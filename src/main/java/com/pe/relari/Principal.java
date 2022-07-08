@@ -7,7 +7,19 @@ public class Principal {
 
     public static void main(String[] args) {
         EmployeeRepository employeeRepository = new EmployeeRepositoryImpl();
-        employeeRepository.findAll().forEach(System.out::println);
+        employeeRepository.findAll()
+                .forEach(System.out::println);
+
+        System.out.println("\n");
+
+        System.out.println(employeeRepository.findById(1));
+
+        System.out.println("\n");
+
+//        employeeRepository.deleteById(1);
+
+        employeeRepository.findByStatus(true)
+                .forEach(System.out::println);
 
     }
 

@@ -13,12 +13,12 @@ public interface EmployeeRepository {
     void save(EmployeeEntity employee);
 
 //    void update(EmployeeEntity employee);
-//
-//    void deleteById(int employeeId);
-//
-//    EmployeeEntity findById(int employeeId);
+
+    void deleteById(int employeeId);
+
+    EmployeeEntity findById(int employeeId);
 
     List<EmployeeEntity> findAll();
 
-//    List<EmployeeEntity> findByStatus(boolean status);
+    List<EmployeeEntity> findByStatus(boolean status);
 }
