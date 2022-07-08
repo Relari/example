@@ -5,9 +5,9 @@
  */
 package com.pe.relari.view;
 
-import com.pe.relari.people.service.EmployeeService;
-import com.pe.relari.people.service.impl.EmployeeServiceImpl;
-import com.pe.relari.people.util.EmployeeUtil;
+import com.pe.relari.service.EmployeeService;
+import com.pe.relari.service.impl.EmployeeServiceImpl;
+import com.pe.relari.util.EmployeeUtil;
 
 import java.util.Arrays;
 import javax.swing.table.DefaultTableModel;

@@ -1,9 +1,10 @@
-package com.pe.relari.people.service.impl;
+package com.pe.relari.service.impl;
 
-import com.pe.relari.people.repository.impl.EmployeeRepositoryImpl;
-import com.pe.relari.people.repository.EmployeeRepository;
-import com.pe.relari.people.model.domain.Employee;
-import com.pe.relari.people.service.EmployeeService;
+import com.pe.relari.model.domain.Employee;
+import com.pe.relari.repository.impl.EmployeeRepositoryImpl;
+import com.pe.relari.repository.EmployeeRepository;
+import com.pe.relari.service.EmployeeService;
+
 import java.util.List;
 import java.util.stream.Collectors;
 

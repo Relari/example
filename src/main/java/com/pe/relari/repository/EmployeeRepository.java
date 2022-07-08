@@ -1,6 +1,6 @@
-package com.pe.relari.people.repository;
+package com.pe.relari.repository;
 
-import com.pe.relari.people.model.entity.EmployeeEntity;
+import com.pe.relari.model.entity.EmployeeEntity;
 
 import java.util.List;
 

@@ -1,6 +1,4 @@
-package com.pe.relari.people.model.entity;
-
-import java.io.Serializable;
+package com.pe.relari.model.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Class EmployeeEntity.
+ * Class Employee.
  * @author Relari
  */
 
@@ -16,12 +14,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class EmployeeEntity implements Serializable {
-
-  /**
-   * 
-   */
-  private static final long serialVersionUID = -417558511178657636L;
+public class Employee {
 
   private Integer id;
   private String fatherLastName;
@@ -31,5 +24,17 @@ public class EmployeeEntity implements Serializable {
   private String sex;
   private Double salary;
   private Boolean isActive;
+
+  public EmployeeBuilder mutate() {
+    return Employee.builder()
+            .id(id)
+            .fatherLastName(fatherLastName)
+            .motherLastName(motherLastName)
+            .firstName(firstName)
+            .sex(sex)
+            .position(position)
+            .salary(salary)
+            .isActive(isActive);
+  }
 
 }

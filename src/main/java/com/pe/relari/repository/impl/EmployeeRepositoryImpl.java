@@ -1,7 +1,7 @@
-package com.pe.relari.people.repository.impl;
+package com.pe.relari.repository.impl;
 
 import com.pe.relari.config.DatabaseConfig;
-import com.pe.relari.people.repository.EmployeeRepository;
+import com.pe.relari.repository.EmployeeRepository;
 import java.awt.HeadlessException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-import com.pe.relari.people.model.entity.EmployeeEntity;
+import com.pe.relari.model.entity.EmployeeEntity;
 import lombok.extern.java.Log;
 
 /**

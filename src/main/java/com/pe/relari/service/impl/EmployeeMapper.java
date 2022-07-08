@@ -1,7 +1,7 @@
-package com.pe.relari.people.service.impl;
+package com.pe.relari.service.impl;
 
-import com.pe.relari.people.model.domain.Employee;
-import com.pe.relari.people.model.entity.EmployeeEntity;
+import com.pe.relari.model.domain.Employee;
+import com.pe.relari.model.entity.EmployeeEntity;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 

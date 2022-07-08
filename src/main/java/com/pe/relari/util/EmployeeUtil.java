@@ -1,6 +1,7 @@
-package com.pe.relari.people.util;
+package com.pe.relari.util;
 
-import com.pe.relari.people.model.domain.Employee;
+import com.pe.relari.model.domain.Employee;
+
 import java.util.Map;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
