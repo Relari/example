@@ -1,33 +1,49 @@
 package com.pe.relari.repository.impl;
 
 import com.pe.relari.config.DatabaseConfig;
+import com.pe.relari.model.Employee;
 import com.pe.relari.repository.EmployeeRepository;
-import java.awt.HeadlessException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import javax.swing.JOptionPane;
 
-import com.pe.relari.model.entity.EmployeeEntity;
-import lombok.extern.java.Log;
+import com.pe.relari.service.EmployeeService;
+import com.pe.relari.service.impl.EmployeeServiceImpl;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+import lombok.extern.log4j.Log4j;
 
 /**
  * Class EmployeeRepositoryImpl.
+ * Clase donde se va a realizar la persistencia de los datos.
  * @author Relari
  */
-@Log
+@Log4j
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class EmployeeRepositoryImpl implements EmployeeRepository {
 
     private static final String ALERT = "Alert";
     private static final String INFO = "Alert";
-    
+    private static final int VALUE_SUCCESS = 1;
+
+    private static EmployeeRepository employeeRepository;
+
+    public static EmployeeRepository getInstance() {
+        if (employeeRepository == null) {
+            employeeRepository = new EmployeeRepositoryImpl();
+        }
+        return employeeRepository;
+    }
+
     private final DatabaseConfig databaseConfig = DatabaseConfig.getInstance();
     private PreparedStatement preparedStatement = null;
 
     @Override
-    public void save(EmployeeEntity person) {
+    public void save(Employee person) {
         try {
             String sql = "INSERT INTO public.employee " +
                     "(father_last_name, first_name, is_active, mother_last_name, position, salary, sex)" +
@@ -43,10 +59,13 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
             preparedStatement.setDouble(6, person.getSalary());
             preparedStatement.setString(7, person.getSex());
 
-            preparedStatement.executeUpdate();
+            if (VALUE_SUCCESS == preparedStatement.executeUpdate()) {
+                JOptionPane.showMessageDialog(null, "Se Grabo Correctamente", INFO, JOptionPane.INFORMATION_MESSAGE);
+            }
 
-            JOptionPane.showMessageDialog(null, "Se Grabo Correctamente", INFO, JOptionPane.INFORMATION_MESSAGE);
-        } catch (HeadlessException | SQLException e) {
+        } catch (SQLException e) {
+            log.error("Ocurrio un error al guardar al empleado.", e);
+
             JOptionPane.showMessageDialog(null, "No se Grabo la Employee", ALERT, JOptionPane.WARNING_MESSAGE);
         } finally {
             databaseConfig.closeConnection();
@@ -61,10 +80,12 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
             preparedStatement = databaseConfig.getConnection().prepareStatement(sql);
             preparedStatement.setBoolean(1, false);
             preparedStatement.setInt(2, employeeId);
-            preparedStatement.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "Se Elimino Correctamente", INFO, JOptionPane.INFORMATION_MESSAGE);
-        } catch (HeadlessException | SQLException e) {
+            if (VALUE_SUCCESS == preparedStatement.executeUpdate()) {
+                JOptionPane.showMessageDialog(null, "Se Elimino Correctamente", INFO, JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (SQLException e) {
+            log.error("Ocurrio un error al eliminar al empleado", e);
             JOptionPane.showMessageDialog(null, "No se Elimino la Employee", ALERT, JOptionPane.WARNING_MESSAGE);
         } finally {
             databaseConfig.closeConnection();
@@ -73,11 +94,13 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     @Override
-    public EmployeeEntity findById(int employeeId) {
+    public Employee findById(int employeeId) {
+
+        log.info("Buscando al emplado por su id=" + employeeId);
 
         String sql = "select * from employee where id = ?";
 
-        EmployeeEntity employeeEntity = null;
+        Employee employee = null;
 
         try {
             preparedStatement = databaseConfig.getConnection().prepareStatement(sql);
@@ -85,21 +108,21 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-                employeeEntity = mapEmployeeEntity(rs);
+                employee = mapEmployee(rs);
             }
 
         } catch (SQLException e) {
-            System.err.println("Error al Buscar Employee " + e.getMessage());
+            log.error("Ocurrio un error al buscar al empleado", e);
         } finally {
             databaseConfig.closeConnection();
         }
 
-        return employeeEntity;
+        return employee;
     }
 
     @Override
-    public List<EmployeeEntity> findAll() {
-        List<EmployeeEntity> people = new ArrayList<>();
+    public List<Employee> findAll() {
+        List<Employee> employees = new ArrayList<>();
 
         String sql = "select * from employee;";
 
@@ -109,17 +132,17 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
-                EmployeeEntity person = mapEmployeeEntity(rs);
+                Employee employee = mapEmployee(rs);
 
-                people.add(person);
+                employees.add(employee);
             }
 
         } catch (SQLException e) {
-            System.err.println("Error al listar Employee " + e.getMessage());
+            log.error("Ocurrio un error al listar todos los empleados.", e);
         } finally {
             databaseConfig.closeConnection();
         }
-        return people;
+        return employees;
     }
 
 //    @Override
@@ -152,9 +175,9 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 //    }
 
     @Override
-    public List<EmployeeEntity> findByStatus(boolean status) {
+    public List<Employee> findByStatus(boolean status) {
 
-        List<EmployeeEntity> people = new ArrayList<>();
+        List<Employee> employees = new ArrayList<>();
 
         String sql = "select * from employee where is_active = ?";
 
@@ -165,21 +188,21 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
-                EmployeeEntity person = mapEmployeeEntity(rs);
+                Employee employee = mapEmployee(rs);
 
-                people.add(person);
+                employees.add(employee);
             }
 
         } catch (SQLException e) {
-            System.err.println("Error al listar Employee " + e.getMessage());
+            log.error("Ocurrio un error al listar los empleados activos o inactivos.", e);
         } finally {
             databaseConfig.closeConnection();
         }
-        return people;
+        return employees;
     }
 
-    private EmployeeEntity mapEmployeeEntity(ResultSet rs) throws SQLException {
-        return EmployeeEntity.builder()
+    private Employee mapEmployee(ResultSet rs) throws SQLException {
+        return Employee.builder()
                 .id(rs.getInt("id"))
                 .fatherLastName(rs.getString("father_last_name"))
                 .motherLastName(rs.getString("mother_last_name"))

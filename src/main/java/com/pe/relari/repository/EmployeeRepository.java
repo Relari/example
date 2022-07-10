@@ -1,8 +1,9 @@
 package com.pe.relari.repository;
 
-import com.pe.relari.model.entity.EmployeeEntity;
+import com.pe.relari.model.Employee;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Interface EmployeeRepository.
@@ -10,15 +11,15 @@ import java.util.List;
  */
 public interface EmployeeRepository {
 
-    void save(EmployeeEntity employee);
+    void save(Employee employee);
 
 //    void update(EmployeeEntity employee);
 
     void deleteById(int employeeId);
 
-    EmployeeEntity findById(int employeeId);
+    Employee findById(int employeeId);
 
-    List<EmployeeEntity> findAll();
+    List<Employee> findAll();
 
-    List<EmployeeEntity> findByStatus(boolean status);
+    List<Employee> findByStatus(boolean status);
 }

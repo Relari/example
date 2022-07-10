@@ -1,4 +1,4 @@
-package com.pe.relari.model.domain;
+package com.pe.relari.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

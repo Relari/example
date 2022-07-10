@@ -5,7 +5,7 @@
  */
 package com.pe.relari.view;
 
-import com.pe.relari.model.domain.Employee;
+import com.pe.relari.model.Employee;
 import com.pe.relari.service.EmployeeService;
 import com.pe.relari.service.impl.EmployeeServiceImpl;
 import com.pe.relari.util.EmployeeUtil;
