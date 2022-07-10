@@ -13,6 +13,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class EmployeeUtil {
 
+    public static final String EMPTY = "";
+
     public static Object [] rowEmployee(Employee employee) {
         return new Object[] {
                 employee.getId(),

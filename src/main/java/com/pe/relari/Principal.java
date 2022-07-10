@@ -11,28 +11,27 @@ public class Principal {
     public static void main(String[] args) {
 
         EmployeeService employeeService = EmployeeServiceImpl.getInstance();
-        System.out.println(employeeService.findById(1));
+        System.out.println(employeeService.findById(100));
+
+        System.out.println("\n");
+
+        EmployeeRepository employeeRepository = EmployeeRepositoryImpl.getInstance();
+        employeeRepository.findAll()
+                .forEach(System.out::println);
+
+        System.out.println("\n");
+
+        Employee employee = employeeRepository.findById(101);
+
+        System.out.println(employee);
 
 
-//        EmployeeRepository employeeRepository = new EmployeeRepositoryImpl();
-//        employeeRepository.findAll()
-//                .forEach(System.out::println);
-//
-//        System.out.println("\n");
-//
-//        Employee employee = employeeRepository.findById(101);
-//
-//        System.out.println(employee);
+        System.out.println("\n");
 
-//        log.info("info");
-//        log.error("error");
+//        employeeRepository.deleteById(1);
 
-//        System.out.println("\n");
-//
-////        employeeRepository.deleteById(1);
-//
-//        employeeRepository.findByStatus(true)
-//                .forEach(System.out::println);
+        employeeRepository.findByStatus(true)
+                .forEach(System.out::println);
 
     }
 

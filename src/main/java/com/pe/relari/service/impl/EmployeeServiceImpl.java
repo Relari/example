@@ -1,15 +1,18 @@
 package com.pe.relari.service.impl;
 
+import static com.pe.relari.util.EmployeeUtil.EMPTY;
+import static javax.swing.JOptionPane.ERROR_MESSAGE;
+
 import com.pe.relari.model.Employee;
 import com.pe.relari.repository.impl.EmployeeRepositoryImpl;
 import com.pe.relari.repository.EmployeeRepository;
 import com.pe.relari.service.EmployeeService;
+import javax.swing.JOptionPane;
+import java.util.List;
+import java.util.Objects;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j;
-
-import java.util.List;
-import java.util.Objects;
 
 /**
  * Class EmployeeServiceImpl.
@@ -43,6 +46,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     Employee employee = employeeRepository.findById(employeeId);
     if (Objects.isNull(employee)) {
       log.error("No se encontro al empleado con el id=" + employeeId);
+      JOptionPane.showMessageDialog(null, "Empleado no encontrado", EMPTY, ERROR_MESSAGE);
       return new Employee();
     } else {
       log.debug("Se encontro al empleado del id=" + employeeId);
@@ -52,7 +56,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 
   @Override
   public void save(Employee employee) {
-    employeeRepository.save(employee);
+    boolean result = employeeRepository.save(employee);
+    if (result) {
+      log.info("Se registro correctamente al empleado.");
+      JOptionPane.showMessageDialog(null, "Empleado registrado");
+    } else  {
+      log.error("No se registro al empleado.");
+      JOptionPane.showMessageDialog(null, "Empleado no registrado", EMPTY, ERROR_MESSAGE);
+    }
   }
 
 }

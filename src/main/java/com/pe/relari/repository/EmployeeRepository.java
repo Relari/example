@@ -11,11 +11,11 @@ import java.util.Optional;
  */
 public interface EmployeeRepository {
 
-    void save(Employee employee);
+    boolean save(Employee employee);
 
 //    void update(EmployeeEntity employee);
 
-    void deleteById(int employeeId);
+    boolean deleteById(int employeeId);
 
     Employee findById(int employeeId);
 
