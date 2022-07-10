@@ -5,6 +5,8 @@
  */
 package com.pe.relari.view;
 
+import static com.pe.relari.util.EmployeeUtil.EMPTY;
+
 import com.pe.relari.model.Employee;
 import com.pe.relari.service.EmployeeService;
 import com.pe.relari.service.impl.EmployeeServiceImpl;
@@ -25,8 +27,6 @@ public class EmployeeRegister extends javax.swing.JFrame {
     /**
      * Creates new form Register
      */
-
-    private static final String EMPTY = "";
 
     public EmployeeRegister() {
         initComponents();

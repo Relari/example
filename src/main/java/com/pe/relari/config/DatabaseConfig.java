@@ -7,11 +7,14 @@ import java.util.Objects;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import lombok.extern.log4j.Log4j;
 
 /**
  * Class DatabaseConfig.
  * @author Relari
  */
+
+@Log4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class DatabaseConfig {
 
@@ -20,19 +23,23 @@ public class DatabaseConfig {
 
     public static DatabaseConfig getInstance() {
         if(instance == null) {
+            log.debug("Creando nueva instancia para la base de datos");
             instance = new DatabaseConfig();
         }
+        log.debug("Retornar instancia existente");
         return instance;
     }
 
     public Connection getConnection() {
         try {
+            log.debug("Conectando a la base de datos.");
             return DriverManager.getConnection(
                     dbProperty.getUrl().concat(dbProperty.getDatabase()),
                     dbProperty.getUsername(),
                     dbProperty.getPassword()
             );
         } catch (SQLException e) {
+            log.error(e.getMessage(), e);
             e.printStackTrace();
             return null;
         }
@@ -40,8 +47,10 @@ public class DatabaseConfig {
 
     public void closeConnection() {
         try {
+            log.debug("Cerrando la coneccion a la base de datos.");
             Objects.requireNonNull(getConnection()).close();
         } catch (SQLException e) {
+            log.error(e.getMessage(), e);
             e.printStackTrace();
         }
     }
