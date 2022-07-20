@@ -103,4 +103,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
     }
 
+    @Override
+    public List<Employee> findByStatus(boolean status) {
+        return employeeRepository.findByStatus(status);
+    }
+
 }

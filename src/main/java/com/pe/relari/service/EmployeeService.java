@@ -12,6 +12,8 @@ import java.util.List;
 public interface EmployeeService {
 
   List<Employee> findAll();
+  
+  List<Employee> findByStatus(boolean status);
 
   Employee findById(int employeeId);
 

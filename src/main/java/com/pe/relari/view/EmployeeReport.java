@@ -98,8 +98,27 @@ public class EmployeeReport extends javax.swing.JFrame {
                 
             }
         });
+        
+        JMenuItem itemActive = new JMenuItem("Active Employee");
+        itemActive.addActionListener((ActionEvent actionEvent) -> {
+            
+            int option = JOptionPane.showConfirmDialog(rootPane, "Desea activar este registro", "", JOptionPane.YES_NO_OPTION);
+            
+            if (JOptionPane.YES_OPTION == option) {
+                
+                var rowSelected = this.tblEmployees.getSelectedRow();
+                
+                employeeService.activeById(
+                        Integer.valueOf(getRowValue(rowSelected, 0))
+                );
+                
+                defaultTableModel.removeRow(rowSelected);
+                
+            }
+        });
 
         jPopupMenu.add(itemDelete);
+        jPopupMenu.add(itemActive);
         tblEmployees.setComponentPopupMenu(jPopupMenu);
     }
     
@@ -116,6 +135,11 @@ public class EmployeeReport extends javax.swing.JFrame {
         return this.tblEmployees.getValueAt(rowSelected, position).toString();
     }
 
+    private void clearTable() {
+        while (defaultTableModel.getRowCount() > 0) {
+            defaultTableModel.removeRow(0);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -129,6 +153,7 @@ public class EmployeeReport extends javax.swing.JFrame {
         tblEmployees = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -150,12 +175,14 @@ public class EmployeeReport extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblEmployees);
 
-        jButton1.setText("active");
+        jButton1.setText("OK");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "active", "inactive" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -165,7 +192,9 @@ public class EmployeeReport extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton1))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -177,7 +206,8 @@ public class EmployeeReport extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(14, Short.MAX_VALUE))
@@ -193,7 +223,18 @@ public class EmployeeReport extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        employeeService.activeById(Integer.valueOf(this.jTextField1.getText()));
+        clearTable();
+        
+        String value = this.jComboBox1.getSelectedItem().toString();
+        
+        employeeService.findByStatus(value.equals("active"))
+                .forEach(employee -> {
+                    Object[] row = EmployeeUtil.rowEmployee(employee);
+                    defaultTableModel.addRow(row);
+                });
+        
+        
+        //employeeService.activeById(Integer.valueOf(this.jTextField1.getText()));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -233,6 +274,7 @@ public class EmployeeReport extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tblEmployees;
