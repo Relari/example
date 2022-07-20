@@ -3,7 +3,6 @@ package com.pe.relari.repository;
 import com.pe.relari.model.Employee;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * Interface EmployeeRepository.
@@ -15,7 +14,7 @@ public interface EmployeeRepository {
 
 //    void update(EmployeeEntity employee);
 
-    boolean deleteById(int employeeId);
+    boolean updatedStatusById(int employeeId, boolean status);
 
     Employee findById(int employeeId);
 

@@ -65,12 +65,12 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     @Override
-    public boolean deleteById(int employeeId) {
+    public boolean updatedStatusById(int employeeId, boolean status) {
 
         try {
             String sql = "update employee set is_active = ? where id = ?;";
             preparedStatement = databaseConfig.getConnection().prepareStatement(sql);
-            preparedStatement.setBoolean(1, false);
+            preparedStatement.setBoolean(1, status);
             preparedStatement.setInt(2, employeeId);
 
             return VALUE_SUCCESS == preparedStatement.executeUpdate();

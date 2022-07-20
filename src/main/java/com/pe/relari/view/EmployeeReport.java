@@ -8,8 +8,13 @@ package com.pe.relari.view;
 import com.pe.relari.service.EmployeeService;
 import com.pe.relari.service.impl.EmployeeServiceImpl;
 import com.pe.relari.util.EmployeeUtil;
+import com.pe.relari.util.MyRender;
+import java.awt.event.ActionEvent;
 
 import java.util.Arrays;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPopupMenu;
 import javax.swing.table.DefaultTableModel;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,6 +31,7 @@ public class EmployeeReport extends javax.swing.JFrame {
      */
     private static final long serialVersionUID = -1024157165236900427L;
     private final DefaultTableModel defaultTableModel = new DefaultTableModel();
+    private final EmployeeService employeeService = EmployeeServiceImpl.getInstance();
 
     @Setter
     @Getter
@@ -47,11 +53,12 @@ public class EmployeeReport extends javax.swing.JFrame {
         initComponents();
         titleColumn();
 
+        this.tblEmployees.setDefaultRenderer(Object.class, new MyRender());
         
         /**
          * Creates new form EmployeeReport
          */
-        EmployeeService employeeService = EmployeeServiceImpl.getInstance();
+        
         employeeService.findAll()
                 .forEach(employee -> {
                     Object[] row = EmployeeUtil.rowEmployee(employee);
@@ -59,6 +66,8 @@ public class EmployeeReport extends javax.swing.JFrame {
                 });
 
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        
+        popupTable();
 
     }
 
@@ -67,6 +76,44 @@ public class EmployeeReport extends javax.swing.JFrame {
                 .forEach(defaultTableModel::addColumn);
 
         this.tblEmployees.setModel(defaultTableModel);
+    }
+    
+    private void popupTable() {
+        JPopupMenu jPopupMenu = new JPopupMenu();
+    
+        JMenuItem itemDelete = new JMenuItem("Delete Register");
+        itemDelete.addActionListener((ActionEvent actionEvent) -> {
+            
+            int option = JOptionPane.showConfirmDialog(rootPane, "Desea eliminar este registro", "", JOptionPane.YES_NO_OPTION);
+            
+            if (JOptionPane.YES_OPTION == option) {
+                
+                var rowSelected = this.tblEmployees.getSelectedRow();
+                
+                employeeService.deleteById(
+                        Integer.valueOf(getRowValue(rowSelected, 0))
+                );
+                
+                defaultTableModel.removeRow(rowSelected);
+                
+            }
+        });
+
+        jPopupMenu.add(itemDelete);
+        tblEmployees.setComponentPopupMenu(jPopupMenu);
+    }
+    
+    private void addValuesInField() {
+        if (this.tblEmployees.getSelectedRow() == -1) {
+            JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un usuario", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        } else {
+            var rowSelected = this.tblEmployees.getSelectedRow();
+            this.jTextField1.setText(getRowValue(rowSelected, 0));
+        }
+    }
+    
+    private String getRowValue(int rowSelected, int position) {
+        return this.tblEmployees.getValueAt(rowSelected, position).toString();
     }
 
     /**
@@ -80,6 +127,8 @@ public class EmployeeReport extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEmployees = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,7 +143,19 @@ public class EmployeeReport extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblEmployees.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblEmployeesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblEmployees);
+
+        jButton1.setText("active");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,19 +163,38 @@ public class EmployeeReport extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTextField1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tblEmployeesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmployeesMouseClicked
+        // TODO add your handling code here:
+        addValuesInField();
+    }//GEN-LAST:event_tblEmployeesMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        employeeService.activeById(Integer.valueOf(this.jTextField1.getText()));
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,7 +232,9 @@ public class EmployeeReport extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tblEmployees;
     // End of variables declaration//GEN-END:variables
 }

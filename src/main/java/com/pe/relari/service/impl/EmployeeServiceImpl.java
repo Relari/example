@@ -66,4 +66,41 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
   }
 
+  @Override
+  public void deleteById(int employeeId) {
+      
+    var employee = findById(employeeId);
+    if (Boolean.FALSE.equals(employee.getIsActive())) {
+        log.info("El empleado esta eliminado.");
+        JOptionPane.showMessageDialog(null, "Empleado ya fue eliminado");
+    } else {
+        boolean result = employeeRepository.updatedStatusById(employeeId, false);
+        if (result) {
+          log.info("Se elimino correctamente al empleado.");
+          JOptionPane.showMessageDialog(null, "Empleado eliminado");
+        } else  {
+          log.error("No se elimino al empleado.");
+          JOptionPane.showMessageDialog(null, "Empleado no eliminado", EMPTY, ERROR_MESSAGE);
+        }
+    }
+  }
+
+    @Override
+    public void activeById(int employeeId) {
+        var employee = findById(employeeId);
+        if (Boolean.TRUE.equals(employee.getIsActive())) {
+            log.info("El empleado esta activado.");
+            JOptionPane.showMessageDialog(null, "Empleado ya fue activado");
+        } else {
+            boolean result = employeeRepository.updatedStatusById(employeeId, true);
+            if (result) {
+              log.info("Se activo correctamente al empleado.");
+              JOptionPane.showMessageDialog(null, "Empleado activado");
+            } else  {
+              log.error("No se activo al empleado.");
+              JOptionPane.showMessageDialog(null, "Empleado no activado", EMPTY, ERROR_MESSAGE);
+            }
+        }
+    }
+
 }
