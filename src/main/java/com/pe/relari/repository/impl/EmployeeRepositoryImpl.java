@@ -10,14 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.log4j.Log4j2;
 
 /**
  * Class EmployeeRepositoryImpl.
  * Clase donde se va a realizar la persistencia de los datos.
  * @author Relari
  */
-@Log4j
+@Log4j2
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class EmployeeRepositoryImpl implements EmployeeRepository {
 

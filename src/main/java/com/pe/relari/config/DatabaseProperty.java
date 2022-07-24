@@ -9,12 +9,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import lombok.extern.log4j.Log4j2;
 
 /**
  *
- * @author cld_r
+ * @author Relari
  */
 
+@Log4j2
 public class DatabaseProperty {
 
   private static final String RESOURCES_DIRECTORY = System.getProperty("user.dir")
@@ -31,7 +33,7 @@ public class DatabaseProperty {
             RESOURCES_DIRECTORY.concat("application.properties"))) {
       prop.load(is);
     } catch(IOException ioe) {
-      ioe.printStackTrace();
+        log.error(ioe.getMessage(), ioe);
     }
   }
 

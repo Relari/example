@@ -167,16 +167,16 @@ public class EmployeeRegister extends javax.swing.JFrame {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
 
-        var name = this.txtName.getText();
-        var position = this.txtPosition.getText();
-        var salary = this.txtSalary.getText();
-        var gender = Objects.requireNonNull(
+        String name = this.txtName.getText();
+        String position = this.txtPosition.getText();
+        String salary = this.txtSalary.getText();
+        String gender = Objects.requireNonNull(
                 this.cbxGender.getSelectedItem()
         ).toString();
 
         if (!name.isBlank() || !position.isBlank() || !salary.isBlank()) {
 
-            var employee = Employee.builder()
+            Employee employee = Employee.builder()
                     .fatherLastName(name)
                     .motherLastName(name)
                     .firstName(name)

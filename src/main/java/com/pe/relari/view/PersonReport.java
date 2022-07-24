@@ -170,7 +170,7 @@ public class PersonReport extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.txtId.setText(this.lstNro.getSelectedValue());
         
-        var name = this.lstName.getModel().getElementAt(this.lstNro.getSelectedIndex());
+        String name = this.lstName.getModel().getElementAt(this.lstNro.getSelectedIndex());
         
         this.txtName.setText(name);
         
@@ -183,7 +183,7 @@ public class PersonReport extends javax.swing.JFrame {
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         // TODO add your handling code here:
-        var id = this.txtId.getText().replace("P", "");
+        String id = this.txtId.getText().replace("P", "");
         PERSON_SERVICE.deleteById(Integer.valueOf(id));
 
         clearList();

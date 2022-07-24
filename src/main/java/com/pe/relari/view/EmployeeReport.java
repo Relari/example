@@ -51,9 +51,7 @@ public class EmployeeReport extends javax.swing.JFrame {
 
     private void init() {
         initComponents();
-        titleColumn();
-
-        this.tblEmployees.setDefaultRenderer(Object.class, new MyRender());
+        tableConfig();
         
         /**
          * Creates new form EmployeeReport
@@ -71,11 +69,13 @@ public class EmployeeReport extends javax.swing.JFrame {
 
     }
 
-    private void titleColumn() {
+    private void tableConfig() {
         Arrays.asList("Id", "Name", "Sex", "Status")
                 .forEach(defaultTableModel::addColumn);
 
         this.tblEmployees.setModel(defaultTableModel);
+        
+        this.tblEmployees.setDefaultRenderer(Object.class, new MyRender());
     }
     
     private void popupTable() {
@@ -88,7 +88,7 @@ public class EmployeeReport extends javax.swing.JFrame {
             
             if (JOptionPane.YES_OPTION == option) {
                 
-                var rowSelected = this.tblEmployees.getSelectedRow();
+                int rowSelected = this.tblEmployees.getSelectedRow();
                 
                 employeeService.deleteById(
                         Integer.valueOf(getRowValue(rowSelected, 0))
@@ -106,7 +106,7 @@ public class EmployeeReport extends javax.swing.JFrame {
             
             if (JOptionPane.YES_OPTION == option) {
                 
-                var rowSelected = this.tblEmployees.getSelectedRow();
+                int rowSelected = this.tblEmployees.getSelectedRow();
                 
                 employeeService.activeById(
                         Integer.valueOf(getRowValue(rowSelected, 0))
@@ -126,7 +126,7 @@ public class EmployeeReport extends javax.swing.JFrame {
         if (this.tblEmployees.getSelectedRow() == -1) {
             JOptionPane.showMessageDialog(rootPane, "Debe seleccionar un usuario", "Advertencia", JOptionPane.WARNING_MESSAGE);
         } else {
-            var rowSelected = this.tblEmployees.getSelectedRow();
+            int rowSelected = this.tblEmployees.getSelectedRow();
             this.jTextField1.setText(getRowValue(rowSelected, 0));
         }
     }

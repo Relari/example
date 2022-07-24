@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Objects;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.log4j.Log4j2;
 
 /**
  * Class EmployeeServiceImpl.
@@ -20,7 +20,7 @@ import lombok.extern.log4j.Log4j;
  * @author Relari
  */
 
-@Log4j
+@Log4j2
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class EmployeeServiceImpl implements EmployeeService {
 
@@ -31,8 +31,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 
   public static EmployeeService getInstance() {
     if (employeeService == null) {
+        log.info("Creando instancia");
       employeeService = new EmployeeServiceImpl();
     }
+    log.info("Instancia activa");
     return employeeService;
   }
 
@@ -69,7 +71,7 @@ public class EmployeeServiceImpl implements EmployeeService {
   @Override
   public void deleteById(int employeeId) {
       
-    var employee = findById(employeeId);
+    Employee employee = findById(employeeId);
     if (Boolean.FALSE.equals(employee.getIsActive())) {
         log.info("El empleado esta eliminado.");
         JOptionPane.showMessageDialog(null, "Empleado ya fue eliminado");
@@ -87,7 +89,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void activeById(int employeeId) {
-        var employee = findById(employeeId);
+        Employee employee = findById(employeeId);
         if (Boolean.TRUE.equals(employee.getIsActive())) {
             log.info("El empleado esta activado.");
             JOptionPane.showMessageDialog(null, "Empleado ya fue activado");
