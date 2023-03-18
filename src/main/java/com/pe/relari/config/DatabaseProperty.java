@@ -1,14 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.pe.relari.config;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 /**
@@ -17,39 +15,21 @@ import lombok.extern.log4j.Log4j2;
  */
 
 @Log4j2
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class DatabaseProperty {
 
-  private static final String RESOURCES_DIRECTORY = System.getProperty("user.dir")
-          .concat("\\src\\main\\resources\\");
   private static final Properties prop = new Properties();
 
-  public DatabaseProperty() {
-    getProperties();
-  }
+  public static String getProperty(String param) {
 
-  private void getProperties() {
-
-    try (InputStream is = new FileInputStream(
-            RESOURCES_DIRECTORY.concat("application.properties"))) {
+    String response = null;
+    try (InputStream is = new FileInputStream(ApplicationProperties.RESOURCES_DIRECTORY)) {
       prop.load(is);
+      response = prop.getProperty(param);
     } catch(IOException ioe) {
         log.error(ioe.getMessage(), ioe);
     }
+    return response;
   }
 
-  public String getUsername() {
-    return prop.getProperty("db.username");
-  }
-
-  public String getPassword() {
-    return prop.getProperty("db.password");
-  }
-
-  public String getUrl() {
-    return prop.getProperty("db.url");
-  }
-
-  public String getDatabase() {
-    return prop.getProperty("db.database");
-  }
 }
