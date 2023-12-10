@@ -40,7 +40,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     public boolean save(Employee person) {
 
         try {
-            String sql = "INSERT INTO public.employee " +
+            String sql = "INSERT INTO Employee " +
                     "(father_last_name, first_name, is_active, mother_last_name, position, salary, sex)" +
                     "VALUES(?,?,?,?,?,?,?);";
 
@@ -68,7 +68,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     public boolean updatedStatusById(int employeeId, boolean status) {
 
         try {
-            String sql = "update employee set is_active = ? where id = ?;";
+            String sql = "update Employee set is_active = ? where id = ?;";
             preparedStatement = databaseConfig.getConnection().prepareStatement(sql);
             preparedStatement.setBoolean(1, status);
             preparedStatement.setInt(2, employeeId);
@@ -86,7 +86,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     @Override
     public Employee findById(int employeeId) {
 
-        log.info("Buscando al emplado por su id=" + employeeId);
+        log.info("Buscando al Employee por su id=" + employeeId);
 
         String sql = "select * from employee where id = ?";
 
@@ -114,7 +114,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     public List<Employee> findAll() {
         List<Employee> employees = new ArrayList<>();
 
-        String sql = "select * from employee;";
+        String sql = "select * from Employee;";
 
         try {
             preparedStatement = databaseConfig.getConnection().prepareStatement(sql);
@@ -169,7 +169,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
         List<Employee> employees = new ArrayList<>();
 
-        String sql = "select * from employee where is_active = ?";
+        String sql = "select * from Employee where is_active = ?";
 
         try {
             preparedStatement = databaseConfig.getConnection().prepareStatement(sql);
